@@ -1,0 +1,140 @@
+.content {
+    h1 {
+        position: absolute;
+        color: #fff;
+        top: 45%;
+        left: 5rem;
+    }
+    h2 {
+        position: absolute;
+        color: #000;
+        top: 50%;
+        left: 5rem;
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+.content .footer {
+    .container {
+        position: relative;
+        align-items: center;
+        top: -10rem;
+        background-color: #fff;
+    }
+    .copyright {
+        color: rgb(144, 143, 143);
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+}
+.content .footer .container {
+    .extra > p {
+        display: inline-block;
+        font-size: 0.8rem;
+        color: rgb(144, 143, 143);
+    }
+    .col1 p:first-child {
+        border-style: solid;
+        border-radius: 10px;
+        padding: 0.5rem 0 0.5rem 1rem;
+    }
+    .col1 p:first-child:hover {
+        background-color: red;
+        color: #fff !important;
+        cursor: pointer;
+    }
+    .col1 p:last-child {
+        border-style: solid;
+        border-radius: 10px;
+        padding: 0.5rem 0 0.5rem 1rem;
+    }
+    .col1 p:last-child:hover {
+        background-color: blue;
+        color: #fff !important;
+        cursor: pointer;
+    }
+    .col2 {
+        border-left-style: solid;
+        border-width: 1.2px;
+        border-left-color: rgb(144, 143, 143);
+        button {
+            border: none;
+            background-color: rgb(144, 218, 32);
+            padding: 0.5rem;
+            margin: 1rem 0 1rem 0;
+            margin-left: 3%;
+            font-weight: 500;
+        }
+        button:hover {
+            background-color: rgb(100, 161, 9);
+        }
+    }
+    .col2 input{
+        display: block;
+        margin-bottom: 1rem;
+        border: none;
+        background-color: rgb(240, 240, 240);
+        padding: 0.5rem;
+        width: 82%;
+    }
+    .col2 a {
+        display: block;
+        text-decoration: none;
+        color: rgb(110, 178, 8);
+    }
+    .col2 a:hover {
+        color: rgb(83, 133, 9);
+    }
+    h3 {
+        text-align: center;
+        line-height: 5rem;
+    }
+    .register {
+        margin-left: 20%;
+        a {
+            display: inline-block;
+        }
+    }
+}
+
+/* RESPONSIVE */
+/* PC */
+@media (min-width: 1024px) {}
+
+/* Tablet & Mobile*/
+@media (max-width: 1023px) {
+    .content {
+        h1 {
+            top: 25%;
+        }
+        h2 {   
+            top: 30%;    
+        }
+    }
+    .content .footer .container {
+        top: -5rem;
+    }
+}
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {}
+
+/* Moile */
+@media (max-width: 740px) {
+    .content {
+        h1 {
+            top: 15%;
+            left: 1rem;
+            font-size: 1.2rem !important;
+        }
+
+        h2 {
+            top: 20%;
+            left: 1rem;
+        }
+    }
+    .content .footer .container {
+        top: -3rem;
+    }
+}
