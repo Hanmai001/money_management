@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-// const passportLocalMongo = require("passport-local-mongoose");
-// const findOrCreate = require("mongoose-findorcreate");      // cung cap ham findorcreat vi trong mongoose ko co ham do
+const passportLocalMongo = require("passport-local-mongoose");
+const findOrCreate = require("mongoose-findorcreate");      // cung cap ham findorcreat vi trong mongoose ko co ham do
 
 const userSchema = new mongoose.Schema({
     email: String,

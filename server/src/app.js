@@ -1,12 +1,13 @@
 const express = require("express");
 const passport = require("passport");
 const session = require('express-session')      // dung de luu truu cookie https://www.npmjs.com/package/express-session
-
+const path = require("path");
 const bodyParser = require("body-parser");
 require('dotenv').config()
 
 
 const db = require("./configs/db/index");
+const connetPassport = require("./configs/passport/index");
 
 const app = express();
 
@@ -27,7 +28,7 @@ app.use(express.json());
 
 //todo connet db
 db.connect();
-
+connetPassport(passport)
 
 let PORT = process.env.PORT;
 //todo server listen
