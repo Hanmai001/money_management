@@ -22,6 +22,7 @@
         align-items: center;
         top: -10rem;
         background-color: #fff;
+        border-radius: 10px;
     }
     .copyright {
         color: rgb(144, 143, 143);
@@ -86,7 +87,7 @@
             background-color: rgb(144, 218, 32);
             padding: 0.5rem;
             margin: 1rem 0 1rem 0;
-            margin-left: 3%;
+            margin-left: 4%;
             font-weight: 500;
         }
         button:hover {
@@ -142,7 +143,54 @@
     }
     .content .footer .container {
         top: -5rem;
+        .extraMobile {
+                font-size: 0.8rem;
+                color: rgb(144, 143, 143);
+            }
+        .mobile {
+            button {
+                border: none;
+                background-color: rgb(144, 218, 32);
+                padding: 0.5rem;
+                margin: 1rem 0 1rem 8%;
+                font-weight: 500;
+            }
+
+            button:hover {
+                background-color: rgb(100, 161, 9);
+            }
+            .register {
+                margin-left: 8% !important;
+            }
+        }
+
+        .mobile input {
+            margin-bottom: 1rem;
+            margin-left: 9% !important;
+            border: none;
+            background-color: rgb(240, 240, 240);
+            padding: 0.5rem;
+            width: 82%;
+        }
+
+        .mobile input:focus {
+            outline-color: rgb(100, 161, 9);
+        }
+
+        .mobile a {
+            display: block;
+            text-decoration: none;
+            color: rgb(110, 178, 8);
+            text-align: right;
+            margin-right: 10%;
+        }
+
+        .mobile a:hover {
+            color: rgb(83, 133, 9);
+        }
     }
+    
+    
 }
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {}
@@ -163,5 +211,9 @@
     }
     .content .footer .container {
         top: -3rem;
+        .extraMobile {
+            font-size: 0.8rem;
+            color: rgb(144, 143, 143);
+        }
     }
 }
