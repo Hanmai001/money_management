@@ -28,6 +28,28 @@
         text-align: center;
         padding-bottom: 2rem;
     }
+    .forgotPass {
+        .col2 {
+            border: none !important;
+        }
+        .modal > p {
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+        input {
+            margin-left: 35% !important;
+        }
+        button {
+            margin-left: 34.4% !important;
+        }
+        .register {
+            margin-left: 52% !important;
+            text-align: center;
+            a {
+                margin-right: 0.5rem;
+            }
+        }
+    }
 }
 .content .footer .container {
     .extra > p {
@@ -78,6 +100,10 @@
         background-color: rgb(240, 240, 240);
         padding: 0.5rem;
         width: 82%;
+        
+    }
+    .col2 input:focus {
+        outline-color: rgb(100, 161, 9);     
     }
     .col2 a {
         display: block;
@@ -98,6 +124,7 @@
         }
     }
 }
+
 
 /* RESPONSIVE */
 /* PC */
