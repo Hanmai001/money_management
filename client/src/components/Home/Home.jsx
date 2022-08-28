@@ -1,5 +1,6 @@
 import React from "react";
 import clsx from "clsx";
+import axios from "axios";
 import styles from "./Home.module.scss";
 
 function Login(props) {
@@ -73,7 +74,11 @@ function Login(props) {
             style={{ marginLeft: "1rem" }}
             onChange={handleChange}
           ></input>
-          <a href="/" style={{ marginLeft: "45%", marginRight: "1rem" }}>
+          <a
+            href="#"
+            style={{ marginLeft: "45%", marginRight: "1rem" }}
+            onClick={() => props.changeCheck(2)}
+          >
             Forgot your password?
           </a>
           <button
@@ -92,7 +97,7 @@ function Login(props) {
               href="#"
               style={{ marginLeft: "0.5rem" }}
               onClick={() => {
-                props.changeCheck(false);
+                props.changeCheck(1);
               }}
             >
               Register
@@ -200,7 +205,7 @@ function Register(props) {
             <a
               href="#"
               style={{ marginLeft: "0.5rem" }}
-              onClick={() => props.changeCheck(true)}
+              onClick={() => props.changeCheck(0)}
             >
               Sign In
             </a>
@@ -210,8 +215,77 @@ function Register(props) {
     </div>
   );
 }
+function ForgotPass(props) {
+  const [input_email, setEmail] = React.useState("");
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    //k dc xai event trong setter
+    setEmail((preValue) => {
+      console.log(preValue);
+      return value;
+    });
+  }
+  return (
+    <div
+      className={clsx("col-8", "mx-auto", styles.container, styles.forgotPass)}
+    >
+      <div className={clsx("row", styles.modal)}>
+        <h3 className={clsx("col-12")}>Forgot Password</h3>
+        <p>
+          We received a request to reset the password for your account.
+          <br></br>
+          <br></br>
+          To reset your password, enter the email then we will send an email to
+          recover your password. Just press the button below and follow the
+          instructions. We’ll have you up and running in no time.
+        </p>
+        <form action="" className={clsx("col-8", styles.col2)}>
+          <input
+            name="email"
+            type="email"
+            value={input_email}
+            placeholder="Email"
+            required
+            style={{ marginLeft: "1rem" }}
+            onChange={handleChange}
+          ></input>
+          <button
+            type="submit"
+            className="col-10"
+            onClick={(event) => {
+              props.resetPass(input_email);
+              event.preventDefault();
+            }}
+          >
+            Send an email
+          </button>
+          <p className={styles.register}>
+            Have you an account?
+            <a
+              href="#"
+              style={{ marginLeft: "0.5rem" }}
+              onClick={() => props.changeCheck(0)}
+            >
+              Sign In
+            </a>
+            Or{" "}
+            <a
+              href="#"
+              style={{ marginLeft: "0.5rem" }}
+              onClick={() => props.changeCheck(1)}
+            >
+              Sign Up
+            </a>
+            with a new account
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+}
 function Home() {
-  const [check, setCheck] = React.useState(true);
+  const [check, setCheck] = React.useState(0);
 
   const changeCheck = (flag) => {
     setCheck(flag);
@@ -240,6 +314,18 @@ function Home() {
     });
     console.log("Sent data", res);
   };
+  const resetPass = async (data) => {
+    console.log("data resetPass: ", data);
+    const headers = {
+      Authorization: "Bearer my-token",
+      "My-Custom-Header": "foobar",
+      "Content-type": "application/json",
+    };
+    const res = await axios.post("http://localhost:5000/", data, {
+      headers,
+    });
+    console.log("Sent data", res);
+  };
   return (
     <div className={clsx("container-fuild", styles.content)}>
       <h1 className="text-sm-start text-break fs-4 fw-light">
@@ -248,10 +334,12 @@ function Home() {
       <h2 className="text-sm-start">MONEY CHOICES</h2>
       <img src="/assets/pictures/home.jpg" alt="home"></img>
       <div className={clsx("container-fuild", styles.footer)}>
-        {check ? (
+        {check === 0 ? (
           <Login login={login} changeCheck={changeCheck} />
-        ) : (
+        ) : check === 1 ? (
           <Register register={register} changeCheck={changeCheck} />
+        ) : (
+          <ForgotPass resetPass={resetPass} changeCheck={changeCheck} />
         )}
         <div className={styles.copyright}>
           <p>Copyright 2022. All Rights reserved</p>
