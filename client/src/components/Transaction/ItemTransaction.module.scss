@@ -1,0 +1,29 @@
+.iTrans {
+    margin-top: 1rem;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(165, 165, 165, 0.3);
+
+    .info .name {
+        display: inline-block;
+        margin-left: 0.5rem;
+    }
+
+    .info img {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin-left: 0.5rem;
+    }
+
+    .info .note {
+        margin-left: 12.2%;
+        font-size: 0.8rem;
+    }
+
+    .info .consume {
+        margin-left: 23%;
+        display: inline-block;
+        text-align: right;
+    }
+}

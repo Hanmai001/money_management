@@ -1,0 +1,104 @@
+.content {
+    width: 100%;
+    
+}
+
+.main {
+    margin-top: 5rem;
+    margin-left: 14vw;
+
+    .overal {
+        padding-top: 2rem;
+        // z-index: -1;
+        .period {
+            h6 {
+                text-align: center;
+                font-size: 0.8rem;
+                padding-bottom: 0.5rem;
+                border-bottom-style: solid;
+                border-bottom-color: rgba(165, 165, 165, 0.3);
+                color: rgba(23, 21, 21, 0.3);
+                font-weight: 700;
+            }
+            h6:hover {
+                cursor: pointer;
+            }
+            p {
+                
+            }
+        }
+        .period:last-child {
+            position: relative;
+            right: 5%;
+        }
+        .period:first-child {
+            position: relative;
+            right: -5%;
+        }
+    }
+    .chooseDate:hover {
+        cursor: pointer;
+    }
+    .chooseDate {
+        width: 14%;
+        margin-left: 5%;
+        margin-top: 2%;
+
+        // z-index: -1;
+        .today {
+            position: relative;
+            right: 13%;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: rgb(116, 116, 116);
+        }
+        i {
+            padding-left: 0.5rem;
+        }
+        span {
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+        .tableDate {
+            width: 60px;
+            height: 160px;
+            overflow: auto;
+            text-align: center;
+            position: absolute;
+            left: 25.5%;
+            tr:hover {
+                background-color: rgba(165, 165, 165, 0.3);
+            }
+        }
+    }
+    .lstTrans {
+        margin-left: 30%;
+        
+        .container {
+            height: 300px;
+            overflow-y: auto;
+        } 
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+        .sum {
+            margin-top: 1rem;
+            border-bottom-style: solid;
+            border-bottom-color: rgba(165, 165, 165, 0.3);
+            .day p {
+                display: inline-block;
+                margin-right: 0.5rem;
+            }
+            .day > p:first-child {
+                font-size: 2rem;
+                font-weight: 500;
+                margin-left: 0.5rem;
+            }
+            .day .consume {
+                margin-left: 1rem;
+                display: inline-block;
+                text-align: right;
+            }
+        }
+    }
+}

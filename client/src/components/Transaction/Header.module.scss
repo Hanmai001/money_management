@@ -1,0 +1,169 @@
+.header {
+    width: 100%;
+    
+    box-shadow: 0 0 10px 0 #000;
+    padding: 1rem 0 1rem 0;
+    margin: 0 !important;
+    position: fixed;
+    z-index: 99;
+
+    h4 {
+        margin: 0.5rem 0 0 1.5rem;
+        font-weight: 450;
+        font-size: 1.2vw;
+    }
+
+    .search {
+        position: relative;
+    
+        :first-child {
+            margin: 0.5rem 1.5rem 0 0;
+            font-size: 1.5rem;
+        }
+        :first-child:hover {
+            cursor: pointer;
+        }
+        input {
+            padding: 0.5rem;
+            width: 70%;
+        }
+
+        :last-child {
+            position: absolute;
+            right: 25%;
+            font-size: 1.2rem;
+            top: 30%;
+        }
+    }
+
+    button {
+        border: none;
+        color: #fff;
+        font-weight: 500;
+        background-color: rgb(144, 218, 32);
+        padding: 0.8rem;
+        border-radius: 5px;
+        font-size: 1vw;
+    }
+
+    button:hover {
+        background-color: rgb(100, 161, 9);
+    }
+
+    .lstWallet {
+        .nav {
+            a {
+                text-decoration: none;
+                color: #000;
+                
+            }
+            i:hover {
+                cursor: pointer;
+            }
+        }
+
+        .subnav {
+            width: 15.5%;
+            position: absolute;
+            background-color: #fff;
+            /*Bóng đổ cho subnav*/
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+
+.wallet {
+    padding-right: 1rem;
+    padding-left: 0 !important;
+    position: relative;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(234, 232, 232);
+
+    img {
+        display: inline-block;
+        margin-left: 0.5rem;
+
+    }
+
+    a {
+        display: inline-block;
+        margin-left: 0.5rem;
+        font-weight: 700;
+        font-size: 1.2vw;
+    }
+
+    p {
+        text-align: right;
+
+    }
+}
+
+.wallet:hover {
+    background-color: rgb(234, 232, 232);
+    cursor: pointer;
+}
+
+
+/* RESPONSIVE */
+/* PC */
+@media (min-width: 1024px) {}
+
+/* Tablet & Mobile*/
+@media (max-width: 1023px) {
+    
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .header {
+        .lstWallet {
+            .nav {
+                .wallet1 {
+                    display: none;
+                }
+            }
+            .subnav {
+                width: 30%;    
+                right: 8%;
+            }
+        }
+
+    }
+}
+
+/* Moile */
+@media (max-width: 740px) {
+    .header {
+        .lstWallet {
+            .nav {
+                .wallet1 {
+                    display: none;
+                }
+                i {
+                    font-size: 0.8rem;
+                }
+            }
+            .subnav {
+                width: 50%;
+                right: 8%;
+            }
+        }
+
+        .search {
+            i:last-child {
+                
+                right: 20%;
+            }
+        }
+    }
+    .wallet {
+        a {
+            font-size: 1.5vw;
+        }
+
+        p {
+            font-size: 2.5vw;
+        }
+    }
+}

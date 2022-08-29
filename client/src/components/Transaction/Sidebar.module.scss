@@ -1,0 +1,107 @@
+.sidebar {
+    margin-top: 5rem;
+    position: fixed;
+
+    border-right-style: solid;
+    border-right-color: rgba(165, 165, 165, 0.3);
+    padding-right: 0 !important;
+    height: 100%;
+    animation: modalFadeIn ease 0.5s;
+    .option {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        padding-left: 2rem;
+
+        img {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            padding-left: 1vw;
+            font-size: 1.4vw;
+        }
+    }
+
+    .option:hover {
+        cursor: pointer;
+        background-color: rgba(165, 165, 165, 0.3);
+    }
+}
+
+.disappear {
+    animation: modalFadeOut ease 0.5s;
+}
+@keyframes modalFadeIn {
+
+    /* modal container sẽ đi từ -100px đến 0px*/
+    from {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes modalFadeOut {
+
+    /* modal container sẽ đi từ -100px đến 0px*/
+    from {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-200px);
+        display: none;
+    }
+}
+/* RESPONSIVE */
+/* PC */
+@media (min-width: 1024px) {}
+
+/* Tablet & Mobile*/
+@media (max-width: 1023px) {}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .sidebar {
+        .option {
+            padding-left: 1rem;
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+/* Moile */
+@media (max-width: 740px) {
+    .sidebar {
+        .option {
+            padding-left: 1.5rem;
+            
+            img {
+                width: 20px;
+                height: 20px;
+                display: block;
+                
+            }
+
+            a {
+                display: block;
+                margin-top: 0.5rem;
+                
+            }
+            
+        }
+    }
+}
