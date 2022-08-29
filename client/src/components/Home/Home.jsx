@@ -297,7 +297,7 @@ function Home() {
       "My-Custom-Header": "foobar",
       "Content-type": "application/json",
     };
-    const res = await axios.post("http://localhost:5000/", data, {
+    const res = await axios.post("http://localhost:5000/account/register", data, {
       headers,
     });
     console.log("Sent data", res);
@@ -309,7 +309,7 @@ function Home() {
       "My-Custom-Header": "foobar",
       "Content-type": "application/json",
     };
-    const res = await axios.post("http://localhost:5000/", data, {
+    const res = await axios.post("http://localhost:5000/account/login", data, {
       headers,
     });
     console.log("Sent data", res);
