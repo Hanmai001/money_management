@@ -25,7 +25,10 @@ function Login(props) {
     <div className={clsx("col-8", "mx-auto", styles.container)}>
       <div className={clsx("row")}>
         <h3 className={clsx("col-12")}>Log In</h3>
-        <div className={clsx("col-12", styles.extra)}>
+        {/* PC */}
+        <div
+          className={clsx("col-12 d-none d-sm-none d-md-block", styles.extra)}
+        >
           <p className={clsx("col-4")} style={{ marginLeft: "2rem" }}>
             Using social network accounts
           </p>
@@ -33,7 +36,7 @@ function Login(props) {
             Using Money choices account
           </p>
         </div>
-        <div className={clsx("col-6", styles.col1)}>
+        <div className={clsx("col-6 d-none d-sm-none d-md-block", styles.col1)}>
           <p
             className={clsx("col-8", "text-danger")}
             style={{ marginLeft: "2rem" }}
@@ -55,7 +58,14 @@ function Login(props) {
             Connect with Facebook
           </p>
         </div>
-        <form action="" className={clsx("col-6", styles.col2)}>
+        <form
+          action=""
+          className={clsx("col-6 d-none d-sm-none d-md-block", styles.col2)}
+          onSubmit={(event) => {
+            props.login(input_login);
+            event.preventDefault();
+          }}
+        >
           <input
             name="email"
             value={input_login.email}
@@ -81,14 +91,7 @@ function Login(props) {
           >
             Forgot your password?
           </a>
-          <button
-            type="submit"
-            className="col-10"
-            onClick={(event) => {
-              props.login(input_login);
-              event.preventDefault();
-            }}
-          >
+          <button type="submit" className="col-10">
             Log in
           </button>
           <p className={styles.register}>
@@ -96,6 +99,97 @@ function Login(props) {
             <a
               href="#"
               style={{ marginLeft: "0.5rem" }}
+              onClick={() => {
+                props.changeCheck(1);
+              }}
+            >
+              Register
+            </a>
+          </p>
+        </form>
+
+        {/* Tablet & Moblie */}
+        <p
+          className={clsx(
+            "col-12 d-block d-sm-block d-md-none",
+            styles.extraMobile
+          )}
+          style={{ textAlign: "center" }}
+        >
+          Using social network accounts
+        </p>
+        <div
+          className={clsx("col-12 d-block d-sm-block d-md-none", styles.col1)}
+        >
+          <p
+            className={clsx("col-8", "text-danger")}
+            style={{ marginLeft: "16.5%" }}
+          >
+            <i
+              className="fa-brands fa-google"
+              style={{ marginRight: "0.5rem" }}
+            ></i>
+            Connect with Google
+          </p>
+          <p
+            className={clsx("col-8", "text-primary")}
+            style={{ marginLeft: "16.5%" }}
+          >
+            <i
+              className="fa-brands fa-facebook"
+              style={{ marginRight: "0.1rem" }}
+            ></i>{" "}
+            Connect with Facebook
+          </p>
+        </div>
+        <p
+          className={clsx(
+            "col-12 d-block d-sm-block d-md-none",
+            styles.extraMobile
+          )}
+          style={{ textAlign: "center" }}
+        >
+          Using Money choices account
+        </p>
+        <form
+          action=""
+          className={clsx("col-12 d-block d-sm-block d-md-none", styles.mobile)}
+          onSubmit={(event) => {
+            props.login(input_login);
+            event.preventDefault();
+          }}
+        >
+          <input
+            name="email"
+            value={input_login.email}
+            type="email"
+            placeholder="Email"
+            required
+            style={{ marginLeft: "1rem" }}
+            onChange={handleChange}
+          ></input>
+          <input
+            name="pass"
+            value={input_login.pass}
+            type="password"
+            placeholder="Password"
+            required
+            style={{ marginLeft: "1rem" }}
+            onChange={handleChange}
+          ></input>
+          <a
+            href="#"
+            onClick={() => props.changeCheck(2)}
+          >
+            Forgot your password?
+          </a>
+          <button type="submit" className="col-10">
+            Log in
+          </button>
+          <p className={styles.register}>
+            Don't have a account?
+            <a
+              href="#"
               onClick={() => {
                 props.changeCheck(1);
               }}
@@ -131,7 +225,10 @@ function Register(props) {
     <div className={clsx("col-8", "mx-auto", styles.container)}>
       <div className={clsx("row")}>
         <h3 className={clsx("col-12")}>Register</h3>
-        <div className={clsx("col-12", styles.extra)}>
+        {/* PC */}
+        <div
+          className={clsx("col-12 d-none d-sm-none d-md-block", styles.extra)}
+        >
           <p className={clsx("col-4")} style={{ marginLeft: "2rem" }}>
             Using social network accounts
           </p>
@@ -139,7 +236,7 @@ function Register(props) {
             Create Money choices account
           </p>
         </div>
-        <div className={clsx("col-6", styles.col1)}>
+        <div className={clsx("col-6 d-none d-sm-none d-md-block", styles.col1)}>
           <p
             className={clsx("col-8", "text-danger")}
             style={{ marginLeft: "2rem" }}
@@ -161,7 +258,14 @@ function Register(props) {
             Connect with Facebook
           </p>
         </div>
-        <form action="" className={clsx("col-6", styles.col2)}>
+        <form
+          action=""
+          className={clsx("col-6 d-none d-sm-none d-md-block", styles.col2)}
+          onSubmit={(event) => {
+            props.register(input_register);
+            event.preventDefault();
+          }}
+        >
           <input
             name="email"
             type="email"
@@ -190,14 +294,100 @@ function Register(props) {
             onChange={handleChange}
           ></input>
 
-          <button
-            type="submit"
-            className="col-10"
-            onClick={(event) => {
-              props.register(input_register);
-              event.preventDefault();
-            }}
+          <button type="submit" className="col-10">
+            Register
+          </button>
+          <p className={styles.register}>
+            Have you an account?
+            <a
+              href="#"
+              style={{ marginLeft: "0.5rem" }}
+              onClick={() => props.changeCheck(0)}
+            >
+              Sign In
+            </a>
+          </p>
+        </form>
+        {/* Tablet */}
+        <p
+          className={clsx(
+            "col-12 d-block d-sm-block d-md-none",
+            styles.extraMobile
+          )}
+          style={{ textAlign: "center" }}
+        >
+          Using social network accounts
+        </p>
+        <div
+          className={clsx("col-12 d-block d-sm-block d-md-none", styles.col1)}
+        >
+          <p
+            className={clsx("col-8", "text-danger")}
+            style={{ marginLeft: "16.5%" }}
           >
+            <i
+              className="fa-brands fa-google"
+              style={{ marginRight: "0.5rem" }}
+            ></i>
+            Connect with Google
+          </p>
+          <p
+            className={clsx("col-8", "text-primary")}
+            style={{ marginLeft: "16.5%" }}
+          >
+            <i
+              className="fa-brands fa-facebook"
+              style={{ marginRight: "0.1rem" }}
+            ></i>{" "}
+            Connect with Facebook
+          </p>
+        </div>
+        <p
+          className={clsx(
+            "col-12 d-block d-sm-block d-md-none",
+            styles.extraMobile
+          )}
+          style={{ textAlign: "center" }}
+        >
+          Create Money choices account
+        </p>
+        <form
+          action=""
+          className={clsx("col-12 d-block d-sm-block d-md-none", styles.mobile)}
+          onSubmit={(event) => {
+            props.register(input_register);
+            event.preventDefault();
+          }}
+        >
+          <input
+            name="email"
+            type="email"
+            value={input_register.email}
+            placeholder="Email"
+            required
+            style={{ marginLeft: "1rem" }}
+            onChange={handleChange}
+          ></input>
+          <input
+            name="pass"
+            type="password"
+            value={input_register.pass}
+            placeholder="Password"
+            required
+            style={{ marginLeft: "1rem" }}
+            onChange={handleChange}
+          ></input>
+          <input
+            name="confpass"
+            value={input_register.confpass}
+            type="password"
+            placeholder="Confirm password"
+            required
+            style={{ marginLeft: "1rem" }}
+            onChange={handleChange}
+          ></input>
+
+          <button type="submit" className="col-10">
             Register
           </button>
           <p className={styles.register}>
@@ -240,7 +430,14 @@ function ForgotPass(props) {
           recover your password. Just press the button below and follow the
           instructions. We’ll have you up and running in no time.
         </p>
-        <form action="" className={clsx("col-8", styles.col2)}>
+        <form
+          action=""
+          className={clsx("col-8", styles.col2)}
+          onSubmit={(event) => {
+            props.resetPass(input_email);
+            event.preventDefault();
+          }}
+        >
           <input
             name="email"
             type="email"
@@ -250,14 +447,7 @@ function ForgotPass(props) {
             style={{ marginLeft: "1rem" }}
             onChange={handleChange}
           ></input>
-          <button
-            type="submit"
-            className="col-10"
-            onClick={(event) => {
-              props.resetPass(input_email);
-              event.preventDefault();
-            }}
-          >
+          <button type="submit" className="col-10">
             Send an email
           </button>
           <p className={styles.register}>
