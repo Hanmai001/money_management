@@ -12,7 +12,6 @@ function registerPost(req, res) {
         else if (!user) {
             res.status(402).json({ chekc: true });
         } else {
-            console.log(user);
             res.status(200).json({ chekc: true });
         }
     })
