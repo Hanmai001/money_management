@@ -1,11 +1,13 @@
 .iTrans {
-    margin-top: 1rem;
+    padding-top: 1rem;
     border-bottom-style: solid;
     border-bottom-color: rgba(165, 165, 165, 0.3);
 
     .info .name {
         display: inline-block;
         margin-left: 0.5rem;
+        font-size: 1.3vw;
+        font-weight: 500;
     }
 
     .info img {
@@ -22,8 +24,64 @@
     }
 
     .info .consume {
-        margin-left: 23%;
+        margin-left: 6vw;
         display: inline-block;
         text-align: right;
+       
+    }
+}
+.iTrans:hover {
+    cursor: pointer;
+    background-color: rgba(165, 165, 165, 0.3);
+}
+
+/* RESPONSIVE */
+/* PC */
+@media (min-width: 1024px) {}
+
+/* Tablet & Mobile*/
+@media (max-width: 1023px) {}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+    .iTrans {
+    
+        .info .name {
+            
+        }
+
+        .info img {
+            width: 40px !important;
+            height: 40px !important;
+        }
+
+        .info .note {
+            
+        }
+
+        .info .consume {
+            margin-left: 16vw!important;
+           
+        }
+    }
+}
+
+/* Moile */
+@media (max-width: 767px) {
+.iTrans {
+
+        .info .name {
+        }
+
+        .info img {
+            width: 40px !important;
+            height: 40px !important;
+        }
+
+        .info .note {}
+
+        .info .consume {
+            margin-left: 18vw !important;
+        }
     }
 }

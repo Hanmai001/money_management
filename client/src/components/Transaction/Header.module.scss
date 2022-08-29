@@ -115,7 +115,7 @@
 }
 
 /* Tablet */
-@media (min-width: 740px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 991px) {
     .header {
         .lstWallet {
             .nav {
@@ -133,7 +133,7 @@
 }
 
 /* Moile */
-@media (max-width: 740px) {
+@media (max-width: 767px) {
     .header {
         .lstWallet {
             .nav {

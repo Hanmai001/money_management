@@ -109,15 +109,65 @@ function Transaction() {
             ) : null}
           </div>
           <div className={clsx("row", styles.lstTrans)}>
-            <div className={clsx("col-7", styles.container)}>
+            <div className={clsx("col-7 d-none d-lg-block", styles.container)}>
               <div className={clsx("col-12", styles.sum)}>
                 <div className={clsx(styles.day)}>
-                  <p>28</p>
-                  <p>Sunday,</p>
-                  <p>August 2022</p>
+                  <p className={styles.cur}>28</p>
+                  <p className={styles.date}>Sunday,</p>
                   <div className={clsx(styles.consume, "col-5")}>
                     <p>-280000000</p>
                   </div>
+                  <p className={styles.month}>August 2022</p>
+                </div>
+              </div>
+              <ItemTransaction />
+              <ItemTransaction />
+              <ItemTransaction />
+              <ItemTransaction />
+              <ItemTransaction />
+              <ItemTransaction />
+              <ItemTransaction />
+            </div>
+            {/* TABLET */}
+            <div
+              className={clsx(
+                "col-10 d-none d-md-block d-lg-none",
+                styles.container
+              )}
+            >
+              <div className={clsx("col-12", styles.sum)}>
+                <div className={clsx(styles.day)}>
+                  <p className={styles.cur}>28</p>
+                  <p className={styles.date}>Sunday,</p>
+                  <div className={clsx(styles.consume, "col-5")}>
+                    <p>-280000000</p>
+                  </div>
+                  <p className={styles.month}>August 2022</p>
+                </div>
+              </div>
+              <ItemTransaction />
+              <ItemTransaction />
+              <ItemTransaction />
+              <ItemTransaction />
+              <ItemTransaction />
+              <ItemTransaction />
+              <ItemTransaction />
+            </div>
+            {/* MOBILE */}
+            <div
+              className={clsx(
+                "col-12 d-xs-block d-sm-block d-md-none",
+                styles.container
+              )}
+            >
+              <div className={clsx("col-12", styles.sum)}>
+                <div className={clsx(styles.day)}>
+                  <p className={styles.cur}>28</p>
+                  <p className={styles.date}>Sunday,</p>
+                  <div className={clsx(styles.consume, "col-5")}>
+                    <p>-280000000</p>
+                  </div>
+                  <p className={styles.month}>August 2022</p>
                 </div>
               </div>
               <ItemTransaction />
