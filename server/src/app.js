@@ -8,7 +8,6 @@ require('dotenv').config()
 
 
 const db = require("./configs/db/index");
-const connetPassport = require("./configs/passport/index");
 const route = require("./routers/index");
 const app = express();
 
@@ -30,12 +29,14 @@ app.use(cors()) // Use this after the variable declaration
 
 //todo connet db
 db.connect();
+const connetPassport = require("./configs/passport/index");
 connetPassport(passport)
 
 //todo route
 route(app);
-let PORT = process.env.PORT;
+
 //todo server listen
+let PORT = process.env.PORT;
 if (PORT == null || PORT == "") {
     PORT = 5000;
 }
