@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Transaction.module.scss";
 import clsx from "clsx";
+import axios from "axios";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import ItemTransaction from "./ItemTransaction";
@@ -9,12 +10,71 @@ const days = [];
 for (var i = 0; i < 31; i++) {
   days.push(i + 1);
 }
-
-
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+const week = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 function Transaction() {
   const [checkDate, setCheckDate] = useState(false);
   const [checkMenu, setCheckMenu] = useState(true);
+  const [sum, setSum] = useState(0);
+  const [time, setTime] = useState({
+    month: new Date().getMonth() + 1,
+    date: new Date().getDate(),
+    year: new Date().getFullYear(),
+    day: new Date().getDay() + 1,
+  });
+
+  const [lst_trans, setLstTrans] = useState([]);
+  const [lst_categ, setLstCateg] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res1 = await axios.get("/api/transactions.json");
+        const res2 = await axios.get("/api/categories.json");
+
+        console.log("lst_transaction: ", res1.data);
+        console.log("lst_category: ", res2.data);
+        let total = 0;
+        let temp = res1.data.filter((item) => {
+          if (Number(item.date.slice(3, 5)) === time.date) {
+            console.log(item.date);
+            total = total + item.amount;
+            return true;
+          }
+        });
+        
+        setLstTrans(temp);
+        setLstCateg(res2.data);
+        setSum(total);
+
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, []);
 
   const checkChooseDate = () => {
     setCheckDate(!checkDate);
@@ -23,6 +83,109 @@ function Transaction() {
     setCheckMenu(!checkMenu);
     e.preventDefault();
   };
+  const selectMonth = async (num) => {
+    const cur = new Date(time.year, num - 1, time.date);
+    setTime((prev) => {
+      return {
+        ...prev,
+        month: num,
+        day: cur.getDay() + 1,
+      };
+    });
+    try {
+        const res = await axios.get("/api/transactions.json");
+        
+        let total = 0;
+        let temp = res.data.filter((item) => {
+          if (
+            Number(item.date.slice(3, 5)) === time.date &&
+            Number(item.date.slice(0, 2)) === num
+          ) {
+            console.log(item.date);
+            total = total + item.amount;
+            return true;
+          }
+        });
+        
+        setLstTrans(temp);
+        setSum(total);
+
+      } catch (error) {
+        console.log(error);
+      }
+  };
+  const selectDate = async (num) => {
+    const cur = new Date(time.year, time.month - 1, num);
+    setTime((prev) => {
+      return {
+        ...prev,
+        date: num,
+        day: cur.getDay() + 1,
+      };
+    });
+    try {
+        const res = await axios.get("/api/transactions.json");
+        
+        let total = 0;
+        let temp = res.data.filter((item) => {
+          if (
+            Number(item.date.slice(3, 5)) === num &&
+            Number(item.date.slice(0, 2)) === time.month
+          ) {
+            console.log(item.date);
+            total = total + item.amount;
+            return true;
+          }
+        });
+        
+        setLstTrans(temp);
+        setSum(total);
+
+      } catch (error) {
+        console.log(error);
+      }
+
+  };
+  const selectYear = async (num) => {
+    const cur = new Date(num, time.month - 1, time.date);
+    setTime((prev) => {
+      return {
+        ...prev,
+        day: cur.getDay() + 1,
+        year: num,
+      };
+    });
+    try {
+        const res = await axios.get("/api/transactions.json");
+        
+        let total = 0;
+        let temp = res.data.filter((item) => {
+          if (
+            Number(item.date.slice(3, 5)) === time.date &&
+            Number(item.date.slice(0, 2)) === time.month
+          ) {
+            console.log(item.date);
+            total = total + item.amount;
+            return true;
+          }
+        });
+        
+        setLstTrans(temp);
+        setSum(total);
+
+      } catch (error) {
+        console.log(error);
+      }
+  };
+  // const selectDay = (num) => {
+  //   const cur = new Date(time.year, time.month - 1, num);
+  //   setTime((prev) => {
+  //     return {
+  //       ...prev,
+  //       day: cur.getDay() + 1,
+  //     };
+  //   });
+  // };
   return (
     <div className={clsx("container-fuild")}>
       <Header clickMenu={clickMenu} />
@@ -38,13 +201,65 @@ function Transaction() {
               <p>Total</p>
             </div>
             <div className={clsx("col-2", styles.period)}>
-              <h6>LAST MONTH</h6>
+              <h6
+                onClick={() => {
+                  if (new Date().getMonth() === 0) {
+                    selectMonth(12);
+                    selectYear(time.year - 1);
+                  } else {
+                    selectMonth(new Date().getMonth());
+                  }
+                }}
+                style={
+                  time.month ===
+                  (new Date().getMonth() === 0 ? 12 : new Date().getMonth())
+                    ? {
+                        color: "rgb(144, 218, 32)",
+                        borderBottomColor: "rgb(144, 218, 32)",
+                      }
+                    : null
+                }
+              >
+                LAST MONTH
+              </h6>
             </div>
             <div className={clsx("col-2", styles.period)}>
-              <h6>THIS MONTH</h6>
+              <h6
+                onClick={() => selectMonth(new Date().getMonth() + 1)}
+                style={
+                  time.month === new Date().getMonth() + 1
+                    ? {
+                        color: "rgb(144, 218, 32)",
+                        borderBottomColor: "rgb(144, 218, 32)",
+                      }
+                    : null
+                }
+              >
+                THIS MONTH
+              </h6>
             </div>
             <div className={clsx("col-2", styles.period)}>
-              <h6>NEXT MONTH</h6>
+              <h6
+                onClick={() => {
+                  if (new Date().getMonth() === 11) {
+                    selectMonth(1);
+                    selectYear(time.year + 1);
+                  } else {
+                    selectMonth(new Date().getMonth() + 2);
+                  }
+                }}
+                style={
+                  time.month ===
+                  (new Date().getMonth() === 11 ? 1 : new Date().getMonth() + 2)
+                    ? {
+                        color: "rgb(144, 218, 32)",
+                        borderBottomColor: "rgb(144, 218, 32)",
+                      }
+                    : null
+                }
+              >
+                NEXT MONTH
+              </h6>
             </div>
             <div className={clsx("col-1", styles.period)}>
               <br></br>
@@ -70,14 +285,14 @@ function Transaction() {
                 data-v-0698e127=""
                 id="Icons/account/ic_account"
                 stroke="none"
-                stroke-width="1"
+                strokeWidth="1"
                 fill="rgba(0,0,0,0.54)"
-                fill-rule="evenodd"
+                fillRule="evenodd"
               >
                 <rect
                   data-v-0698e127=""
                   id="blue-background"
-                  fill-opacity="0"
+                  fillOpacity="0"
                   fill="#FFFFFF"
                   x="0"
                   y="0"
@@ -92,15 +307,15 @@ function Transaction() {
                 ></path>
               </g>
             </svg>
-            <span className={clsx(styles.today)}>29</span>
+            <span className={clsx(styles.today)}>{time.date}</span>
             <span>CHOOSE DATE</span>
             <i className="fa-solid fa-caret-down"></i>
 
             {checkDate ? (
               <div className={clsx(styles.tableDate)}>
-                <table cellspacing="0" cellpadding="1" width="40">
+                <table cellSpacing="0" cellPadding="1" width="40">
                   {days.map((day) => (
-                    <tr>
+                    <tr onClick={() => selectDate(day)}>
                       <td>{day}</td>
                     </tr>
                   ))}
@@ -112,21 +327,30 @@ function Transaction() {
             <div className={clsx("col-7 d-none d-lg-block", styles.container)}>
               <div className={clsx("col-12", styles.sum)}>
                 <div className={clsx(styles.day)}>
-                  <p className={styles.cur}>28</p>
-                  <p className={styles.date}>Sunday,</p>
+                  <p className={styles.cur}>{time.date}</p>
+                  <p className={styles.date}>{week[time.day - 1]},</p>
                   <div className={clsx(styles.consume, "col-5")}>
-                    <p>-280000000</p>
+                    <p>-{sum}</p>
                   </div>
-                  <p className={styles.month}>August 2022</p>
+                  <p className={styles.month}>
+                    {months[time.month - 1]} {time.year}
+                  </p>
                 </div>
               </div>
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
+              {lst_trans.map((trans) => (
+                <ItemTransaction
+                  categ={
+                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                      .name
+                  }
+                  categ_img={
+                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                      .img
+                  }
+                  amount={trans.amount}
+                  note={trans.note}
+                />
+              ))}
             </div>
             {/* TABLET */}
             <div
@@ -137,21 +361,30 @@ function Transaction() {
             >
               <div className={clsx("col-12", styles.sum)}>
                 <div className={clsx(styles.day)}>
-                  <p className={styles.cur}>28</p>
-                  <p className={styles.date}>Sunday,</p>
+                  <p className={styles.cur}>{time.date}</p>
+                  <p className={styles.date}>{week[time.day - 1]},</p>
                   <div className={clsx(styles.consume, "col-5")}>
                     <p>-280000000</p>
                   </div>
-                  <p className={styles.month}>August 2022</p>
+                  <p className={styles.month}>
+                    {months[time.month - 1]} {time.year}
+                  </p>
                 </div>
               </div>
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
+              {lst_trans.map((trans) => (
+                <ItemTransaction
+                  categ={
+                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                      .name
+                  }
+                  categ_img={
+                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                      .img
+                  }
+                  amount={trans.amount}
+                  note={trans.note}
+                />
+              ))}
             </div>
             {/* MOBILE */}
             <div
@@ -162,21 +395,30 @@ function Transaction() {
             >
               <div className={clsx("col-12", styles.sum)}>
                 <div className={clsx(styles.day)}>
-                  <p className={styles.cur}>28</p>
-                  <p className={styles.date}>Sunday,</p>
+                  <p className={styles.cur}>{time.date}</p>
+                  <p className={styles.date}>{week[time.day - 1]},</p>
                   <div className={clsx(styles.consume, "col-5")}>
                     <p>-280000000</p>
                   </div>
-                  <p className={styles.month}>August 2022</p>
+                  <p className={styles.month}>
+                    {months[time.month - 1]} {time.year}
+                  </p>
                 </div>
               </div>
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
-              <ItemTransaction />
+              {lst_trans.map((trans) => (
+                <ItemTransaction
+                  categ={
+                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                      .name
+                  }
+                  categ_img={
+                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                      .img
+                  }
+                  amount={trans.amount}
+                  note={trans.note}
+                />
+              ))}
             </div>
           </div>
         </div>

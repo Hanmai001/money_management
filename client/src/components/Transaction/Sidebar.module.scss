@@ -1,7 +1,8 @@
 .sidebar {
     margin-top: 5rem;
     position: fixed;
-
+    z-index: 99;
+    background-color: #fff;
     border-right-style: solid;
     border-right-color: rgba(165, 165, 165, 0.3);
     padding-right: 0 !important;
@@ -86,22 +87,12 @@
 /* Moile */
 @media (max-width: 767px) {
     .sidebar {
+        width: 180px;
         .option {
-            padding-left: 1.5rem;
-            
-            img {
-                width: 20px;
-                height: 20px;
-                display: block;
-                
-            }
-
+            padding-left: 1rem;
             a {
-                display: block;
-                margin-top: 0.5rem;
-                
+                font-size: 1rem;
             }
-            
         }
     }
 }

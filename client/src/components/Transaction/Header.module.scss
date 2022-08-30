@@ -8,9 +8,9 @@
     z-index: 99;
 
     h4 {
-        margin: 0.5rem 0 0 1.5rem;
+        margin: 1vh 0 0 1vw;
         font-weight: 450;
-        font-size: 1.2vw;
+        font-size: 1.5vw;
     }
 
     .search {
@@ -120,7 +120,14 @@
         .lstWallet {
             .nav {
                 .wallet1 {
-                    display: none;
+                    font-size: 0.8rem;
+                }
+                i {
+                    font-size: 0.8rem;
+                }
+                img.wallet1 {
+                    width: 30px !important;
+                    height: 30px !important;
                 }
             }
             .subnav {
@@ -137,12 +144,13 @@
     .header {
         .lstWallet {
             .nav {
-                .wallet1 {
+                a.wallet1 {
                     display: none;
                 }
                 i {
                     font-size: 0.8rem;
                 }
+                
             }
             .subnav {
                 width: 50%;
