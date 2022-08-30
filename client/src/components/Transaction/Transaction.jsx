@@ -5,6 +5,7 @@ import axios from "axios";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import ItemTransaction from "./ItemTransaction";
+import AddTransForm from "./AddTransForm";
 
 const days = [];
 for (var i = 0; i < 31; i++) {
@@ -37,6 +38,8 @@ const week = [
 function Transaction() {
   const [checkDate, setCheckDate] = useState(false);
   const [checkMenu, setCheckMenu] = useState(true);
+  const [open, setOpen] = useState(false);
+
   const [sum, setSum] = useState(0);
   const [time, setTime] = useState({
     month: new Date().getMonth() + 1,
@@ -177,18 +180,13 @@ function Transaction() {
         console.log(error);
       }
   };
-  // const selectDay = (num) => {
-  //   const cur = new Date(time.year, time.month - 1, num);
-  //   setTime((prev) => {
-  //     return {
-  //       ...prev,
-  //       day: cur.getDay() + 1,
-  //     };
-  //   });
-  // };
+  const openAdd = () => {
+    setOpen(!open);
+  }
   return (
     <div className={clsx("container-fuild")}>
-      <Header clickMenu={clickMenu} />
+      <Header clickMenu={clickMenu} openAdd={openAdd}/>
+      {open ? (<AddTransForm openAdd={openAdd}/>) : null}
       <div className={clsx("row", styles.content)}>
         {checkMenu ? <Sidebar checkOpen={checkMenu} /> : null}
         <div className={clsx(styles.main, "col-10")}>

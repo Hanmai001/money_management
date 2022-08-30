@@ -17,10 +17,11 @@ function Wallet(props) {
 
 function Header(props) {
   const [check, setCheck] = useState(false);
-
+  
   const handleClick = () => {
     setCheck(!check);
   };
+  
   return (
     <div className={clsx("row", styles.header)}>
       <div className={clsx("col-2")} styles={{ display: "inline-block" }}>
@@ -35,7 +36,7 @@ function Header(props) {
         <i className="fa-solid fa-magnifying-glass"></i>
       </div>
       <div className={clsx("col-2")} styles={{ display: "inline-block" }}>
-        <button>ADD TRANSACTION</button>
+        <button onClick={props.openAdd}>ADD TRANSACTION</button>
       </div>
       <div
         className={clsx("col-2", styles.lstWallet)}
