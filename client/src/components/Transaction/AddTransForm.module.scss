@@ -16,13 +16,13 @@
     background-color: white;
 
     width: 100%;
-    max-width: 60rem;
+    max-width: 960px;
     height: 30rem;
     align-items: center;
     border-width: 5px;
 
     /* Để sdung keyframes modalFadeIn đi chậm ease 0.5s*/
-    //animation: modalFadeIn ease 0.5s
+    animation: modalFadeIn ease 0.5s;
     .header {
         border-bottom-style: solid;
         border-bottom-color: rgba(220, 220, 220, 0.5);
@@ -140,12 +140,18 @@
         input:focus {
             outline: none;
         }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     }
 
     .row2 {
         margin-top: 2rem;
 
         .date {
+            border-style: solid;
             border-width: 1px;
             border-color: rgb(172, 172, 172);
             background-color: #fff;
@@ -159,11 +165,16 @@
                 top: 46%;
             }
 
-            :last-child {
+            input {
                 display: inline-block;
                 position: absolute;
+                top: 51.5%;
                 left: 9%;
                 font-size: 1.2rem;
+                border: none;
+            }
+            input:focus {
+                outline: none;
             }
 
             i {
@@ -221,6 +232,163 @@
     }
 }
 
+.modal .modalWallet {
+    position: absolute;
+    background-color: #fff;
+    z-index: 105;
+    width: 100%;
+    max-width:30rem;
+    top: 12.5%;
+    height: 40rem;
+    align-items: center;
+    border-width: 10px;
+    .header {
+        border-bottom-style: solid;
+        border-bottom-color: rgb(237, 237, 237);
+        padding: 1rem;
+
+        p {
+            padding-left: 6%;
+            font-size: 1.5rem;
+            display: inline-block;
+        }
+        button {
+            display: inline-block;
+            margin-left: 1rem;
+        }
+
+    }
+    .wallet {
+        border: none;
+        position: relative;
+        background-color: #fff;
+        width: 96%;
+        margin-left: 1.8%;
+        height: 80px;
+        :first-child {
+            display: inline-block;
+            position: absolute;
+            top: 10%;
+            left: 6.5rem;
+        }
+        :last-child {
+            position: absolute;
+            font-size: 0.8rem;
+            top: 50%;
+            left: 6.5rem;
+        }
+        img {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: absolute;
+            top: 11%;
+            left: 2rem;
+        }
+        i {
+            margin-left: 20rem;
+            font-size: 1.5rem;
+            color: rgb(135, 223, 3);
+        }
+        
+    }
+    .wallet:hover {
+        cursor: pointer;
+        background-color: rgb(230, 255, 223);
+    }
+    .scroll {
+        height: 100%;
+        overflow-y: auto;
+    }
+    .scroll::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.modal .modalCateg {
+    position: absolute;
+    background-color: #fff;
+    z-index: 105;
+    width: 100%;
+    max-width: 30rem;
+    top: 12.5%;
+    height: 40rem;
+    align-items: center;
+    border-width: 10px;
+
+    .header {
+        border-bottom-style: solid;
+        border-bottom-color: rgb(237, 237, 237);
+        padding: 1rem;
+
+        p {
+            padding-left: 6%;
+            font-size: 1.5rem;
+            display: inline-block;
+        }
+
+        button {
+            display: inline-block;
+            margin-left: 1rem;
+        }
+
+    }
+
+    .categ {
+        border: none;
+        position: relative;
+        background-color: #fff;
+        width: 96%;
+        margin-left: 1.8%;
+        height: 80px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(237, 237, 237);
+        p {
+            display: inline-block;
+            position: absolute;
+            top: 10%;
+            left: 6.5rem;
+        }
+        img {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: absolute;
+            top: 11%;
+            left: 2rem;
+        }
+
+    }
+
+    .categ:hover {
+        cursor: pointer;
+        background-color: rgb(230, 255, 223);
+    }
+
+    .scroll {
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .scroll::-webkit-scrollbar {
+        display: none;
+    }
+}
+@keyframes modalFadeIn {
+
+    /* modal container sẽ đi từ -100px đến 0px*/
+    from {
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* RESPONSIVE */
 /* Tablet */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -307,71 +475,133 @@
 @media (max-width: 767px) {
     .modal .modalContainer {
         max-width: 100%;
-
+        overflow-y: scroll;
+        .row {
+            margin-bottom: 1.5rem;
+        }
+        .wallet, .categ, .amount, .date, .note {
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgb(172, 172, 172);
+            background-color: #fff;
+            border-radius: 10px;
+            margin-left: 9.5%;
+            height: 70px;
+            max-width: 80%;
+        }
         .wallet {
-            margin-left: 8vw;
-            :last-child {
-                left: 14.5vw;
+         
+            :first-child {
+                top: 26%;
+                left: 22%;
             }
+    
+            :last-child {
+                left: 22%;
+            }
+    
             img {
-                left: 7vw;
+                left: 10%;
+                top: 26%;
             }
+    
             i {
-                left: 27.5vw;
+                top: 31.5%;
+                left: 85%;
             }
-
+    
         }
-
+    
         .categ {
-
+    
+            :first-child {
+                top: 44.5%;
+                left: 10%;
+            }
+    
             :last-child {
-                left: 42.5vw;
+                left: 15%;
             }
-
+    
             .ques {
-                left: 36vw;
-
+                left: 6.5%;
+                top: 51%;
             }
-
+    
             .right {
-
-                left: 58vw;
+                top: 51%;
+                left: 85%;
             }
         }
-
+    
         .amount {
-            p {
-                left: 73vw;
+
+            :first-child {
+                top: 64.5%;
             }
+    
             input {
-                left: 73vw;
-
+                left: 10%;
+                top: 70.5%;
+                width: 80%;
+            }
+    
+            input:focus {
+                outline: none;
             }
         }
-
-        .row2 {
-            .date {
-                margin-left: 7.8vw;
+    
+        .date {
             
-                :last-child {
-                    left: 8vw;
-                    font-size: 1rem;
-                }
-
-                i {
-
-                    left: 27vw;
-                }
+            :first-child {
+                font-size: 0.8rem;
+                position: absolute;
+                top: 84.5%;
             }
 
-            .note {
-                width: 57vw;
-                input {
-                    left: 39.5vw;
-                }
+            input {
+                display: inline-block;
+                position: absolute;
+                top: 89%;
+                left: 9.5%;
+                font-size: 1.2rem;
+                border: none;
+            }
+
+            input:focus {
+                outline: none;
+            }
+
+        }
+        
+        .note {
+            :first-child {
+                font-size: 0.8rem;
+                position: absolute;
+                top: 104.5%;
+            }
+
+            input {
+                border: none;
+                position: absolute;
+                left: 10%;
+                top: 109%;
+            }
+
+            input:focus {
+                outline: none;
             }
         }
-
-        .btnAdd {}
+        .btnAdd {
+            position: static;
+            float: right;
+            margin-right: 2.5rem;
+            padding-bottom: 1rem;
+        }
     }
+    
+    .modal .modalContainer::-webkit-scrollbar {
+        display: none;
+    }
+    
 }

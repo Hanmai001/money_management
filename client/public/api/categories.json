@@ -33,5 +33,40 @@
         "_id": 7,
         "name": "Other Utility Bills",
         "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+        "_id": 8,
+        "name": "Food & Beverage",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+        "_id": 9,
+        "name": "Transportation",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+        "_id": 10,
+        "name": "Water Bill",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+        "_id": 11,
+        "name": "Phone Bill",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+        "_id": 12,
+        "name": "Gas Bill",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+        "_id": 13,
+        "name": "Internet Bill",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+        "_id": 14,
+        "name": "Other Utility Bills",
+        "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
     }
 ]

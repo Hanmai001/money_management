@@ -185,8 +185,8 @@ function Transaction() {
   }
   return (
     <div className={clsx("container-fuild")}>
-      <Header clickMenu={clickMenu} openAdd={openAdd}/>
-      {open ? (<AddTransForm openAdd={openAdd}/>) : null}
+      <Header clickMenu={clickMenu} openAdd={openAdd} />
+      {open ? <AddTransForm openAdd={openAdd} /> : null}
       <div className={clsx("row", styles.content)}>
         {checkMenu ? <Sidebar checkOpen={checkMenu} /> : null}
         <div className={clsx(styles.main, "col-10")}>
@@ -337,6 +337,7 @@ function Transaction() {
               </div>
               {lst_trans.map((trans) => (
                 <ItemTransaction
+                  key={trans._id}
                   categ={
                     lst_categ.find((categ) => categ._id === trans.categoryId)
                       .name
@@ -371,6 +372,7 @@ function Transaction() {
               </div>
               {lst_trans.map((trans) => (
                 <ItemTransaction
+                  key={trans._id}
                   categ={
                     lst_categ.find((categ) => categ._id === trans.categoryId)
                       .name
@@ -405,6 +407,7 @@ function Transaction() {
               </div>
               {lst_trans.map((trans) => (
                 <ItemTransaction
+                  key={trans._id}
                   categ={
                     lst_categ.find((categ) => categ._id === trans.categoryId)
                       .name
