@@ -179,6 +179,7 @@ function AddTransForm(props) {
         }
       );
       console.log("Posted a Transaction", res);
+      props.openAdd();
     } catch (err) {
       console.log(err);
     }
