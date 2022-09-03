@@ -1,0 +1,62 @@
+[
+    {
+        "_id": 1,
+        "name": "Việt Nam Đồng",
+        "scale": "đ",
+        "icon": "https://static.moneylover.me/img/flag/ic_currency_vnd.png"
+    },
+    {
+        "_id": 2,
+        "name": "Pound",
+        "scale": "GBP",
+        "icon": "https://static.moneylover.me/img/flag/ic_currency_gbp.png"
+    },
+    {
+        "_id": 3,
+        "name": "Euro",
+        "scale": "EUR",
+        "icon": "https://static.moneylover.me/img/flag/ic_currency_eur.png"
+    },
+    {
+        "_id": 4,
+        "name": "Yen",
+        "scale": "JPY",
+        "icon": "https://static.moneylover.me/img/flag/ic_currency_jpy.png"
+    },
+    {
+        "_id": 5,
+        "name": "Rubles",
+        "scale": "RUB",
+        "icon": "https://static.moneylover.me/img/flag/ic_currency_rub.png"
+    },
+    {
+        "_id": 6,
+        "name": "Baht",
+        "scale": "THB",
+        "icon": "https://static.moneylover.me/img/flag/ic_currency_thb.png"
+    },
+    {
+        "_id": 7,
+        "name": "Won",
+        "scale": "KRW",
+        "icon": "https://static.moneylover.me/img/flag/ic_currency_krw.png"
+    },
+    {
+        "_id": 8,
+        "name": "United States Dollar",
+        "scale": "USD",
+        "icon": "https://static.moneylover.me/img/flag/ic_currency_usd.png"
+    },
+    {
+        "_id": 9,
+        "name": "Francs",
+        "scale": "CHF - Fr",
+        "icon": "https://static.moneylover.me/img/flag/ic_currency_chf.png"
+    },
+    {
+        "_id": 10,
+        "name": "Norwegian krone",
+        "scale": "NOK - kr",
+        "icon": "https://static.moneylover.me/img/flag/ic_currency_nok.png"
+    }
+]
