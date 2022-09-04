@@ -1,25 +1,29 @@
-const User = require("../../modules/User.model");
 const passport = require("passport");
-
-
-function loginPost(req, res, next) {
+const User = require("../../modules/user.model");
+// POST /account/login
+function loginPOST(req, res, next) {
     const user = new User({
-        username: req.body.email,
-        password: req.body.pass
+        username: req.body.username,
+        password: req.body.password
     });
-    req.login(user, function (err) {
+    passport.authenticate("local", (err, user, info) => {
         if (err) {
-            console.log({ err })
-            return next(err);
-        } else {
-            console.log(user);
-            passport.authenticate('local')(req, res, () => {
-                return res.status(200).json({ check: true, id: user._id });
-            });
+            return res.status(501).json({ check: false });
         }
-    });
+        if (!user) {
+            console.log("Not user");
+            return res.status(400).json({ check: false });
+        }
+        req.login(user, (err) => {
+            if (err) {
+                console.log({ err });
+                return res.status(501).json({ check: false });
+            }
+            return res.status(200).json({ check: true });
+        });
+    })(req, res, next);
 }
 
 module.exports = {
-    loginPost
+    loginPOST
 }

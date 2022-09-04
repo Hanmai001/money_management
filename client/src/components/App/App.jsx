@@ -5,8 +5,8 @@ import Transaction from "../Transaction/Transaction";
 function App() {
   return (
     <Fragment>
-      {/* <Home/> */}
-      <Transaction/>
+      <Home/>
+      {/* <Transaction/> */}
     </Fragment>
   );
 }

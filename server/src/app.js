@@ -1,14 +1,14 @@
 const express = require("express");
-const passport = require("passport");
-const session = require('express-session')      // dung de luu truu cookie https://www.npmjs.com/package/express-session
-const path = require("path");
+const session = require("express-session");
 const bodyParser = require("body-parser");
-const cors = require('cors')
-require('dotenv').config()
-
+const cors = require('cors');
+const passport = require("passport");
+require('dotenv').config();
 
 const db = require("./configs/db/index");
 const route = require("./routers/index");
+const passportConfig = require("./configs/passport/index");
+
 const app = express();
 
 //todo setting server
@@ -16,21 +16,24 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use(session({           // tao goi session cho may chu trang web
-    secret: "Our little secret.",
-    resave: false,
-    saveUninitialized: false
-}));
-
-app.use(passport.initialize());     // khoi tao 
-app.use(passport.session());        // yeu cau he thong su dung passport de dua session vao 
 app.use(express.json());
 app.use(cors()) // Use this after the variable declaration
 
+//todo passport with session setting
+app.use(session({
+    secret: 'Our little secret.',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: true }
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passportConfig(passport);
+
 //todo connet db
 db.connect();
-const connetPassport = require("./configs/passport/index");
-connetPassport(passport)
 
 //todo route
 route(app);

@@ -5,8 +5,8 @@ import styles from "./Home.module.scss";
 
 function Login(props) {
   const [input_login, setLogin] = React.useState({
-    email: "",
-    pass: "",
+    username: "",
+    password: "",
   });
 
   function handleChange(event) {
@@ -67,8 +67,8 @@ function Login(props) {
           }}
         >
           <input
-            name="email"
-            value={input_login.email}
+            name="username"
+            value={input_login.username}
             type="email"
             placeholder="Email"
             required
@@ -76,8 +76,8 @@ function Login(props) {
             onChange={handleChange}
           ></input>
           <input
-            name="pass"
-            value={input_login.pass}
+            name="password"
+            value={input_login.password}
             type="password"
             placeholder="Password"
             required
@@ -160,8 +160,8 @@ function Login(props) {
           }}
         >
           <input
-            name="email"
-            value={input_login.email}
+            name="username"
+            value={input_login.username}
             type="email"
             placeholder="Email"
             required
@@ -169,8 +169,8 @@ function Login(props) {
             onChange={handleChange}
           ></input>
           <input
-            name="pass"
-            value={input_login.pass}
+            name="password"
+            value={input_login.password}
             type="password"
             placeholder="Password"
             required
@@ -204,8 +204,8 @@ function Login(props) {
 }
 function Register(props) {
   const [input_register, setRes] = React.useState({
-    email: "",
-    pass: "",
+    username: "",
+    password: "",
     confpass: "",
   });
 
@@ -267,18 +267,18 @@ function Register(props) {
           }}
         >
           <input
-            name="email"
+            name="username"
             type="email"
-            value={input_register.email}
+            value={input_register.username}
             placeholder="Email"
             required
             style={{ marginLeft: "1rem" }}
             onChange={handleChange}
           ></input>
           <input
-            name="pass"
+            name="password"
             type="password"
-            value={input_register.pass}
+            value={input_register.password}
             placeholder="Password"
             required
             style={{ marginLeft: "1rem" }}
@@ -360,18 +360,18 @@ function Register(props) {
           }}
         >
           <input
-            name="email"
+            name="username"
             type="email"
-            value={input_register.email}
+            value={input_register.username}
             placeholder="Email"
             required
             style={{ marginLeft: "1rem" }}
             onChange={handleChange}
           ></input>
           <input
-            name="pass"
+            name="password"
             type="password"
-            value={input_register.pass}
+            value={input_register.password}
             placeholder="Password"
             required
             style={{ marginLeft: "1rem" }}
