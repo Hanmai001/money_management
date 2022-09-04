@@ -5,18 +5,20 @@
     background-color: #fff;
     border-right-style: solid;
     border-right-color: rgba(165, 165, 165, 0.3);
-    padding-right: 0 !important;
+    padding: 0 !important;
     height: 100%;
     animation: modalFadeIn ease 0.5s;
+
     .option {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+        padding-top: 1.3rem;
+        padding-bottom: 1.3rem;
         padding-left: 2rem;
 
         img {
             width: 30px;
             height: 30px;
             display: inline-block;
+            border-radius: 50%;
         }
 
         a {
@@ -24,7 +26,7 @@
             color: black;
             display: inline-block;
             padding-left: 1vw;
-            font-size: 1.4vw;
+
         }
     }
 
@@ -37,6 +39,7 @@
 .disappear {
     animation: modalFadeOut ease 0.5s;
 }
+
 @keyframes modalFadeIn {
 
     /* modal container sẽ đi từ -100px đến 0px*/
@@ -50,6 +53,7 @@
         transform: translateX(0);
     }
 }
+
 @keyframes modalFadeOut {
 
     /* modal container sẽ đi từ -100px đến 0px*/
@@ -64,6 +68,7 @@
         display: none;
     }
 }
+
 /* RESPONSIVE */
 /* PC */
 @media (min-width: 1024px) {}
@@ -76,6 +81,7 @@
     .sidebar {
         .option {
             padding-left: 1rem;
+
             img {
                 width: 20px;
                 height: 20px;
@@ -88,11 +94,9 @@
 @media (max-width: 767px) {
     .sidebar {
         width: 180px;
+
         .option {
             padding-left: 1rem;
-            a {
-                font-size: 1rem;
-            }
         }
     }
 }

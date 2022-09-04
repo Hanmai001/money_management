@@ -1,0 +1,54 @@
+.content {
+    width: 100%;
+    margin: 0 !important;
+}
+
+.lstCateg {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    .container {
+        width: 414px;
+        box-shadow: 0 5px 10px rgb(118, 117, 117);
+        margin-top: 10rem;
+        align-items: center;
+        height: 455px;
+        overflow-y: auto;
+        background-color: #fff;
+        padding: 0 !important;
+    }
+
+    .container::-webkit-scrollbar {
+        display: none;
+    }
+}
+.iCateg {
+    position: relative;
+    height: 60px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(165, 165, 165, 0.3);
+
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 0.6rem 0.5rem 0 2rem;
+        
+    }
+
+    .name {
+        margin-left: 1rem;
+    }
+}
+
+/* Moile */
+@media (max-width: 767px) {
+
+    // .lstCateg .container {
+    //     width: 100%;
+    // }
+}

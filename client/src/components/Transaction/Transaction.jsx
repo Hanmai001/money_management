@@ -3,7 +3,7 @@ import styles from "./Transaction.module.scss";
 import clsx from "clsx";
 import axios from "axios";
 import Header from "./Header";
-import Sidebar from "./Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 import ItemTransaction from "./ItemTransaction";
 import AddTransForm from "./AddTransForm";
 
@@ -185,10 +185,10 @@ function Transaction() {
   }
   return (
     <div className={clsx("container-fuild")}>
-      <Header clickMenu={clickMenu} openAdd={openAdd}/>
-      {open ? (<AddTransForm openAdd={openAdd}/>) : null}
+      <Header clickMenu={clickMenu} openAdd={openAdd} />
+      {open ? <AddTransForm openAdd={openAdd} /> : null}
       <div className={clsx("row", styles.content)}>
-        {checkMenu ? <Sidebar checkOpen={checkMenu} /> : null}
+        {checkMenu ? <Sidebar index={1} checkOpen={checkMenu} /> : null}
         <div className={clsx(styles.main, "col-10")}>
           <div className={clsx("row", styles.overal)}>
             <div className={clsx("col-1", styles.period)}>
@@ -337,6 +337,7 @@ function Transaction() {
               </div>
               {lst_trans.map((trans) => (
                 <ItemTransaction
+                  key={trans._id}
                   categ={
                     lst_categ.find((categ) => categ._id === trans.categoryId)
                       .name
@@ -371,6 +372,7 @@ function Transaction() {
               </div>
               {lst_trans.map((trans) => (
                 <ItemTransaction
+                  key={trans._id}
                   categ={
                     lst_categ.find((categ) => categ._id === trans.categoryId)
                       .name
@@ -405,6 +407,7 @@ function Transaction() {
               </div>
               {lst_trans.map((trans) => (
                 <ItemTransaction
+                  key={trans._id}
                   categ={
                     lst_categ.find((categ) => categ._id === trans.categoryId)
                       .name
