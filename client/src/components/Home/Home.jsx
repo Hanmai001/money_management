@@ -7,7 +7,7 @@ import AuthApi from "../Home/Auth";
 
 
 function Login(props) {
-  const [input_login, setLogin] = React.useState({
+  const [input_login, setLogin] = useState({
     username: "",
     password: "",
   });
@@ -206,7 +206,7 @@ function Login(props) {
   );
 }
 function Register(props) {
-  const [input_register, setRes] = React.useState({
+  const [input_register, setRes] = useState({
     username: "",
     password: "",
     confpass: "",
@@ -409,7 +409,7 @@ function Register(props) {
   );
 }
 function ForgotPass(props) {
-  const [input_email, setEmail] = React.useState("");
+  const [input_email, setEmail] = useState("");
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -481,7 +481,7 @@ function Home() {
   const [check, setCheck] = useState(0);
   const [check_login, setCheckLogIn] = useState(false);
 
-  const {Auth} = useContext(AuthApi);
+  const { Auth } = useContext(AuthApi);
 
   const changeCheck = (flag) => {
     setCheck(flag);
