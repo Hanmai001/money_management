@@ -70,7 +70,7 @@ function Sidebar(props) {
         }
       >
         <img src="https://thumbs.dreamstime.com/b/category-icon-range-151047418.jpg"></img>
-        <a href="#">Categories</a>
+        <Link to="/categories">Categories</Link>
       </div>
       <div
         className={styles.option}

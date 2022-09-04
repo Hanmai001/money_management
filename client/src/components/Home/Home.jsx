@@ -1,8 +1,10 @@
-import { React, useState } from "react";
-import { Link, useLocation, Navigate } from "react-router-dom";
+import { React, useContext, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import clsx from "clsx";
 import axios from "axios";
 import styles from "./Home.module.scss";
+import AuthApi from "../Home/Auth";
+
 
 function Login(props) {
   const [input_login, setLogin] = useState({
@@ -479,6 +481,8 @@ function Home() {
   const [check, setCheck] = useState(0);
   const [check_login, setCheckLogIn] = useState(false);
 
+  const {Auth} = useContext(AuthApi);
+
   const changeCheck = (flag) => {
     setCheck(flag);
   };
@@ -506,6 +510,7 @@ function Home() {
     });
     console.log("Sent data", res);
     setCheckLogIn(!check_login);
+    //Auth.setCheckLogIn(true);
   };
   const resetPass = async (data) => {
     console.log("data resetPass: ", data);

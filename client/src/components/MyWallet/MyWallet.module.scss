@@ -16,7 +16,7 @@
         box-shadow: 0 5px 10px rgb(118, 117, 117);
         margin-top: 10rem;
         align-items: center;
-        height: 485px;
+        height: 455px;
         overflow-y: auto;
         background-color: #fff;
         padding: 0 !important;
@@ -411,6 +411,7 @@
 
 /* Moile */
 @media (max-width: 767px) {
+
     .modal .edit,
     .modal .addWallet {
         height: 30rem;
@@ -422,6 +423,7 @@
         .cancelBtn {
             margin-left: 0;
         }
+
         .currency,
         .inflow {
             border-style: solid;
@@ -496,7 +498,7 @@
         }
     }
 
-    
+
     .modal .containerCurrency {
         .header {
             input {
