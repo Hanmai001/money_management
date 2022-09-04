@@ -1,10 +1,11 @@
-import React from "react";
+import { React, useState } from "react";
+import { Link, useLocation, Navigate } from "react-router-dom";
 import clsx from "clsx";
 import axios from "axios";
 import styles from "./Home.module.scss";
 
 function Login(props) {
-  const [input_login, setLogin] = React.useState({
+  const [input_login, setLogin] = useState({
     email: "",
     pass: "",
   });
@@ -475,7 +476,8 @@ function ForgotPass(props) {
   );
 }
 function Home() {
-  const [check, setCheck] = React.useState(0);
+  const [check, setCheck] = useState(0);
+  const [check_login, setCheckLogIn] = useState(false);
 
   const changeCheck = (flag) => {
     setCheck(flag);
@@ -499,10 +501,11 @@ function Home() {
       "My-Custom-Header": "foobar",
       "Content-type": "application/json",
     };
-    const res = await axios.post("http://localhost:5000/account/login", data, {
+    const res = await axios.post("https://jsonplaceholder.typicode.com/posts", data, {
       headers,
     });
     console.log("Sent data", res);
+    setCheckLogIn(!check_login);
   };
   const resetPass = async (data) => {
     console.log("data resetPass: ", data);
@@ -516,7 +519,7 @@ function Home() {
     });
     console.log("Sent data", res);
   };
-  return (
+  return check_login ? (<Navigate to="/transaction"></Navigate>) : (
     <div className={clsx("container-fuild", styles.content)}>
       <h1 className="text-sm-start text-break fs-4 fw-light">
         Save money to help you get the most out of our Rich life

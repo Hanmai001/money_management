@@ -10,8 +10,8 @@
     animation: modalFadeIn ease 0.5s;
 
     .option {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+        padding-top: 1.3rem;
+        padding-bottom: 1.3rem;
         padding-left: 2rem;
 
         img {
@@ -26,7 +26,7 @@
             color: black;
             display: inline-block;
             padding-left: 1vw;
-            font-size: 1.4vw;
+
         }
     }
 
@@ -97,10 +97,6 @@
 
         .option {
             padding-left: 1rem;
-
-            a {
-                font-size: 1rem;
-            }
         }
     }
 }
