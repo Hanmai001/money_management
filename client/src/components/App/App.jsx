@@ -6,10 +6,11 @@ import Transaction from "../Transaction/Transaction";
 import MyWallet from "../MyWallet/MyWallet";
 import Categories from "../Categories/Categories";
 import AuthApi from "../Home/Auth";
+import MyAccount from "../MyAccount/MyAccount";
 
 function App() {
 
-  const [Auth, setAuth] = useState(false);
+  const [Auth, setAuth] = useState({});
 
   useEffect(() => {
     const getData = async () => {
@@ -30,12 +31,13 @@ function App() {
   return (
     <Router>
       <Fragment>
-      <AuthApi.Provider value={{Auth, setAuth}}>
+      <AuthApi.Provider value={{Auth}}>
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route exact path="/transaction" element={<Transaction />}></Route>
             <Route exact path="/mywallet" element={<MyWallet />}></Route>
             <Route exact path="/categories" element={<Categories />}></Route>
+            <Route exact path="/myaccount" element={<MyAccount />}></Route>
           </Routes>
       </AuthApi.Provider>
       </Fragment>

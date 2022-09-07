@@ -505,12 +505,15 @@ function Home() {
       "My-Custom-Header": "foobar",
       "Content-type": "application/json",
     };
-    const res = await axios.post("https://jsonplaceholder.typicode.com/posts", data, {
-      headers,
-    });
-    console.log("Sent data", res);
+    // const res = await axios.post("https://jsonplaceholder.typicode.com/posts", data, {
+    //   headers,
+    // });
+    const res = await axios.get("./api/users.json");
+    console.log("Sent data", res.data);
     setCheckLogIn(!check_login);
-    //Auth.setCheckLogIn(true);
+    Auth.Auth = (res.data.filter(user => {
+      if (user.email === data.email) return true;
+    }))[0];
   };
   const resetPass = async (data) => {
     console.log("data resetPass: ", data);

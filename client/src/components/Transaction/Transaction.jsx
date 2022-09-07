@@ -67,7 +67,7 @@ function Transaction() {
             return true;
           }
         });
-        
+
         setLstTrans(temp);
         setLstCateg(res2.data);
         setSum(total);
@@ -96,26 +96,26 @@ function Transaction() {
       };
     });
     try {
-        const res = await axios.get("/api/transactions.json");
-        
-        let total = 0;
-        let temp = res.data.filter((item) => {
-          if (
-            Number(item.date.slice(3, 5)) === time.date &&
-            Number(item.date.slice(0, 2)) === num
-          ) {
-            console.log(item.date);
-            total = total + item.amount;
-            return true;
-          }
-        });
-        
-        setLstTrans(temp);
-        setSum(total);
+      const res = await axios.get("/api/transactions.json");
 
-      } catch (error) {
-        console.log(error);
-      }
+      let total = 0;
+      let temp = res.data.filter((item) => {
+        if (
+          Number(item.date.slice(3, 5)) === time.date &&
+          Number(item.date.slice(0, 2)) === num
+        ) {
+          console.log(item.date);
+          total = total + item.amount;
+          return true;
+        }
+      });
+
+      setLstTrans(temp);
+      setSum(total);
+
+    } catch (error) {
+      console.log(error);
+    }
   };
   const selectDate = async (num) => {
     const cur = new Date(time.year, time.month - 1, num);
@@ -127,26 +127,26 @@ function Transaction() {
       };
     });
     try {
-        const res = await axios.get("/api/transactions.json");
-        
-        let total = 0;
-        let temp = res.data.filter((item) => {
-          if (
-            Number(item.date.slice(3, 5)) === num &&
-            Number(item.date.slice(0, 2)) === time.month
-          ) {
-            console.log(item.date);
-            total = total + item.amount;
-            return true;
-          }
-        });
-        
-        setLstTrans(temp);
-        setSum(total);
+      const res = await axios.get("/api/transactions.json");
 
-      } catch (error) {
-        console.log(error);
-      }
+      let total = 0;
+      let temp = res.data.filter((item) => {
+        if (
+          Number(item.date.slice(3, 5)) === num &&
+          Number(item.date.slice(0, 2)) === time.month
+        ) {
+          console.log(item.date);
+          total = total + item.amount;
+          return true;
+        }
+      });
+
+      setLstTrans(temp);
+      setSum(total);
+
+    } catch (error) {
+      console.log(error);
+    }
 
   };
   const selectYear = async (num) => {
@@ -159,26 +159,26 @@ function Transaction() {
       };
     });
     try {
-        const res = await axios.get("/api/transactions.json");
-        
-        let total = 0;
-        let temp = res.data.filter((item) => {
-          if (
-            Number(item.date.slice(3, 5)) === time.date &&
-            Number(item.date.slice(0, 2)) === time.month
-          ) {
-            console.log(item.date);
-            total = total + item.amount;
-            return true;
-          }
-        });
-        
-        setLstTrans(temp);
-        setSum(total);
+      const res = await axios.get("/api/transactions.json");
 
-      } catch (error) {
-        console.log(error);
-      }
+      let total = 0;
+      let temp = res.data.filter((item) => {
+        if (
+          Number(item.date.slice(3, 5)) === time.date &&
+          Number(item.date.slice(0, 2)) === time.month
+        ) {
+          console.log(item.date);
+          total = total + item.amount;
+          return true;
+        }
+      });
+
+      setLstTrans(temp);
+      setSum(total);
+
+    } catch (error) {
+      console.log(error);
+    }
   };
   const openAdd = () => {
     setOpen(!open);
@@ -210,11 +210,11 @@ function Transaction() {
                 }}
                 style={
                   time.month ===
-                  (new Date().getMonth() === 0 ? 12 : new Date().getMonth())
+                    (new Date().getMonth() === 0 ? 12 : new Date().getMonth())
                     ? {
-                        color: "rgb(144, 218, 32)",
-                        borderBottomColor: "rgb(144, 218, 32)",
-                      }
+                      color: "rgb(144, 218, 32)",
+                      borderBottomColor: "rgb(144, 218, 32)",
+                    }
                     : null
                 }
               >
@@ -227,9 +227,9 @@ function Transaction() {
                 style={
                   time.month === new Date().getMonth() + 1
                     ? {
-                        color: "rgb(144, 218, 32)",
-                        borderBottomColor: "rgb(144, 218, 32)",
-                      }
+                      color: "rgb(144, 218, 32)",
+                      borderBottomColor: "rgb(144, 218, 32)",
+                    }
                     : null
                 }
               >
@@ -248,11 +248,11 @@ function Transaction() {
                 }}
                 style={
                   time.month ===
-                  (new Date().getMonth() === 11 ? 1 : new Date().getMonth() + 2)
+                    (new Date().getMonth() === 11 ? 1 : new Date().getMonth() + 2)
                     ? {
-                        color: "rgb(144, 218, 32)",
-                        borderBottomColor: "rgb(144, 218, 32)",
-                      }
+                      color: "rgb(144, 218, 32)",
+                      borderBottomColor: "rgb(144, 218, 32)",
+                    }
                     : null
                 }
               >
@@ -354,7 +354,7 @@ function Transaction() {
             {/* TABLET */}
             <div
               className={clsx(
-                "col-10 d-none d-md-block d-lg-none",
+                "d-none d-md-block d-lg-none",
                 styles.container
               )}
             >
@@ -363,7 +363,7 @@ function Transaction() {
                   <p className={styles.cur}>{time.date}</p>
                   <p className={styles.date}>{week[time.day - 1]},</p>
                   <div className={clsx(styles.consume, "col-5")}>
-                    <p>-280000000</p>
+                    <p>-{sum}</p>
                   </div>
                   <p className={styles.month}>
                     {months[time.month - 1]} {time.year}
@@ -398,7 +398,7 @@ function Transaction() {
                   <p className={styles.cur}>{time.date}</p>
                   <p className={styles.date}>{week[time.day - 1]},</p>
                   <div className={clsx(styles.consume, "col-5")}>
-                    <p>-280000000</p>
+                    <p>-{sum}</p>
                   </div>
                   <p className={styles.month}>
                     {months[time.month - 1]} {time.year}
