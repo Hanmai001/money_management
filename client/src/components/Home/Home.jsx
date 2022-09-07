@@ -8,8 +8,8 @@ import AuthApi from "../Home/Auth";
 
 function Login(props) {
   const [input_login, setLogin] = useState({
-    email: "",
-    pass: "",
+    username: "",
+    password: "",
   });
 
   function handleChange(event) {
@@ -70,8 +70,8 @@ function Login(props) {
           }}
         >
           <input
-            name="email"
-            value={input_login.email}
+            name="username"
+            value={input_login.username}
             type="email"
             placeholder="Email"
             required
@@ -79,8 +79,8 @@ function Login(props) {
             onChange={handleChange}
           ></input>
           <input
-            name="pass"
-            value={input_login.pass}
+            name="password"
+            value={input_login.password}
             type="password"
             placeholder="Password"
             required
@@ -163,8 +163,8 @@ function Login(props) {
           }}
         >
           <input
-            name="email"
-            value={input_login.email}
+            name="username"
+            value={input_login.username}
             type="email"
             placeholder="Email"
             required
@@ -172,8 +172,8 @@ function Login(props) {
             onChange={handleChange}
           ></input>
           <input
-            name="pass"
-            value={input_login.pass}
+            name="password"
+            value={input_login.password}
             type="password"
             placeholder="Password"
             required
@@ -206,9 +206,9 @@ function Login(props) {
   );
 }
 function Register(props) {
-  const [input_register, setRes] = React.useState({
-    email: "",
-    pass: "",
+  const [input_register, setRes] = useState({
+    username: "",
+    password: "",
     confpass: "",
   });
 
@@ -270,18 +270,18 @@ function Register(props) {
           }}
         >
           <input
-            name="email"
+            name="username"
             type="email"
-            value={input_register.email}
+            value={input_register.username}
             placeholder="Email"
             required
             style={{ marginLeft: "1rem" }}
             onChange={handleChange}
           ></input>
           <input
-            name="pass"
+            name="password"
             type="password"
-            value={input_register.pass}
+            value={input_register.password}
             placeholder="Password"
             required
             style={{ marginLeft: "1rem" }}
@@ -363,18 +363,18 @@ function Register(props) {
           }}
         >
           <input
-            name="email"
+            name="username"
             type="email"
-            value={input_register.email}
+            value={input_register.username}
             placeholder="Email"
             required
             style={{ marginLeft: "1rem" }}
             onChange={handleChange}
           ></input>
           <input
-            name="pass"
+            name="password"
             type="password"
-            value={input_register.pass}
+            value={input_register.password}
             placeholder="Password"
             required
             style={{ marginLeft: "1rem" }}
@@ -409,7 +409,7 @@ function Register(props) {
   );
 }
 function ForgotPass(props) {
-  const [input_email, setEmail] = React.useState("");
+  const [input_email, setEmail] = useState("");
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -481,7 +481,7 @@ function Home() {
   const [check, setCheck] = useState(0);
   const [check_login, setCheckLogIn] = useState(false);
 
-  const {Auth} = useContext(AuthApi);
+  const { Auth } = useContext(AuthApi);
 
   const changeCheck = (flag) => {
     setCheck(flag);

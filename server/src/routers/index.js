@@ -1,7 +1,7 @@
-const accounttRouter = require("./user_account/index");
+const accountRouter = require("./user_account/index");
 
-const route = function(app) {
-    app.use("/account", accounttRouter);
+const route = function (app) {
+    app.use("/account", accountRouter);
 }
 
 module.exports = route;

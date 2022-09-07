@@ -29,6 +29,7 @@ function App() {
   }, []);
 
   return (
+
     <Router>
       <Fragment>
       <AuthApi.Provider value={{Auth}}>
@@ -39,10 +40,10 @@ function App() {
             <Route exact path="/categories" element={<Categories />}></Route>
             <Route exact path="/myaccount" element={<MyAccount />}></Route>
           </Routes>
-      </AuthApi.Provider>
+        </AuthApi.Provider>
       </Fragment>
     </Router>
-    
+
   );
 }
 export default App;
