@@ -3,13 +3,13 @@ import { Link, Navigate } from "react-router-dom";
 import clsx from "clsx";
 import axios from "axios";
 import styles from "./Home.module.scss";
-import AuthApi from "../Home/Auth";
+import AuthApi from "./AuthApi";
 
 
 function Login(props) {
   const [input_login, setLogin] = useState({
-    username: "",
-    password: "",
+    email: "",
+    pass: "",
   });
 
   function handleChange(event) {
@@ -70,8 +70,8 @@ function Login(props) {
           }}
         >
           <input
-            name="username"
-            value={input_login.username}
+            name="email"
+            value={input_login.email}
             type="email"
             placeholder="Email"
             required
@@ -79,8 +79,8 @@ function Login(props) {
             onChange={handleChange}
           ></input>
           <input
-            name="password"
-            value={input_login.password}
+            name="pass"
+            value={input_login.pass}
             type="password"
             placeholder="Password"
             required
@@ -163,8 +163,8 @@ function Login(props) {
           }}
         >
           <input
-            name="username"
-            value={input_login.username}
+            name="email"
+            value={input_login.email}
             type="email"
             placeholder="Email"
             required
@@ -172,8 +172,8 @@ function Login(props) {
             onChange={handleChange}
           ></input>
           <input
-            name="password"
-            value={input_login.password}
+            name="pass"
+            value={input_login.pass}
             type="password"
             placeholder="Password"
             required
@@ -207,8 +207,8 @@ function Login(props) {
 }
 function Register(props) {
   const [input_register, setRes] = useState({
-    username: "",
-    password: "",
+    email: "",
+    pass: "",
     confpass: "",
   });
 
@@ -270,18 +270,18 @@ function Register(props) {
           }}
         >
           <input
-            name="username"
+            name="email"
             type="email"
-            value={input_register.username}
+            value={input_register.email}
             placeholder="Email"
             required
             style={{ marginLeft: "1rem" }}
             onChange={handleChange}
           ></input>
           <input
-            name="password"
+            name="pass"
             type="password"
-            value={input_register.password}
+            value={input_register.pass}
             placeholder="Password"
             required
             style={{ marginLeft: "1rem" }}
@@ -363,18 +363,18 @@ function Register(props) {
           }}
         >
           <input
-            name="username"
+            name="email"
             type="email"
-            value={input_register.username}
+            value={input_register.email}
             placeholder="Email"
             required
             style={{ marginLeft: "1rem" }}
             onChange={handleChange}
           ></input>
           <input
-            name="password"
+            name="pass"
             type="password"
-            value={input_register.password}
+            value={input_register.pass}
             placeholder="Password"
             required
             style={{ marginLeft: "1rem" }}
@@ -514,6 +514,7 @@ function Home() {
     Auth.Auth = (res.data.filter(user => {
       if (user.email === data.email) return true;
     }))[0];
+    console.log("###", Auth.Auth)
   };
   const resetPass = async (data) => {
     console.log("data resetPass: ", data);

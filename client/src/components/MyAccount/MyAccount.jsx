@@ -4,19 +4,22 @@ import clsx from "clsx";
 import axios from "axios";
 import Header from "./Header";
 import Sidebar from "../Sidebar/Sidebar";
-import AuthApi from "../Home/Auth";
+import AuthApi from "../Home/AuthApi";
+
 
 const Auth = {
-    email: "giahanmai3110@gmail.com",
-    fullname: "Mai Tran Gia Han",
-    pass: "h12345",
-    ava: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp",
-    job: "Web design",
-    facebook: "https://www.facebook.com/profile.php?id=100038694972797",
-    insta: "https://www.facebook.com/profile.php?id=100038694972797"
+    Auth: {
+        email: "giahanmai3110@gmail.com",
+        fullname: "Mai Tran Gia Han",
+        pass: "h12345",
+        ava: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp",
+        job: "Web design",
+        facebook: "https://www.facebook.com/profile.php?id=100038694972797",
+        insta: "https://www.facebook.com/profile.php?id=100038694972797"
+    }
 }
 
-function Overview() {
+function Overview(props) {
     return (
         <div className={clsx("tab-content pt-2", styles.overview)}>
             <div className={clsx("tab-pane fade show active")} role="tabpanel">
@@ -26,7 +29,7 @@ function Overview() {
                         Fullname
                     </div>
                     <div className={clsx("col-9")}>
-                        {Auth.fullname}
+                        {props.Auth.fullname}
                     </div>
                 </div>
                 <div className={clsx("row", styles.info)}>
@@ -34,7 +37,7 @@ function Overview() {
                         Email
                     </div>
                     <div className={clsx("col-9")}>
-                        {Auth.email}
+                        {props.Auth.email}
                     </div>
                 </div>
                 <div className={clsx("row", styles.info)}>
@@ -42,24 +45,40 @@ function Overview() {
                         Job
                     </div>
                     <div className={clsx("col-9")}>
-                        {Auth.job}
+                        {props.Auth.job}
                     </div>
                 </div>
             </div>
         </div>
     )
 }
-function EditProfile() {
+function EditProfile(props) {
+    const [data, setData] = useState({ ...props.Auth });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setData(prev => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
     return (
         <div className={clsx("tab-content pt-2", styles.editProfile)}>
             <div className={clsx("tab-pane fade show active")} role="tabpanel">
-                <form>
+                <form
+                    action=""
+                    onSubmit={(event) => {
+                        props.editProfile(data);
+                        //event.preventDefault();
+                    }}>
                     <div className={clsx("row", styles.info)}>
                         <div className={clsx("col-3")}>
                             Profile image
                         </div>
                         <div className={clsx("col-9")}>
-                            <img src={Auth.ava}></img>
+                            <img src={props.Auth.ava}></img>
                             <div>
                                 <i className="fa-solid fa-upload"></i>
                                 <span>Upload your photo</span>
@@ -72,7 +91,7 @@ function EditProfile() {
                             Fullname
                         </div>
                         <div className={clsx("col-9")}>
-                            <input type="text" value={Auth.fullname}></input>
+                            <input name="fullname" type="text" value={data.fullname} onChange={handleChange}></input>
                         </div>
                     </div>
                     <div className={clsx("row", styles.info)}>
@@ -80,7 +99,7 @@ function EditProfile() {
                             Email
                         </div>
                         <div className={clsx("col-9")}>
-                            <input type="text" value={Auth.email}></input>
+                            <input name="email" type="text" value={data.email} onChange={handleChange}></input>
                         </div>
                     </div>
                     <div className={clsx("row", styles.info)}>
@@ -88,7 +107,7 @@ function EditProfile() {
                             Job
                         </div>
                         <div className={clsx("col-9")}>
-                            <input type="text" value={Auth.job}></input>
+                            <input name="job" type="text" value={data.job} onChange={handleChange}></input>
                         </div>
                     </div>
                     <div className={clsx("row", styles.info)}>
@@ -96,7 +115,7 @@ function EditProfile() {
                             Facebook
                         </div>
                         <div className={clsx("col-9")}>
-                            <input type="text" value={Auth.facebook}></input>
+                            <input name="facebook" type="text" value={data.facebook} onChange={handleChange}></input>
                         </div>
                     </div>
                     <div className={clsx("row", styles.info)}>
@@ -104,11 +123,11 @@ function EditProfile() {
                             Instagram
                         </div>
                         <div className={clsx("col-9")}>
-                            <input type="text" value={Auth.insta}></input>
+                            <input name="insta" type="text" value={data.insta} onChange={handleChange}></input>
                         </div>
                     </div>
                     <div className={clsx("text-center")}>
-                        <button className={styles.btn}>SAVE CHANGES</button>
+                        <button type="submit" className={styles.btn}>SAVE CHANGES</button>
                     </div>
                 </form>
 
@@ -116,17 +135,35 @@ function EditProfile() {
         </div>
     )
 }
-function ChangePassword() {
+function ChangePassword(props) {
+    const [data, setData] = useState({
+        cur_pass: "",
+        new_pass: "",
+        confpass: ""
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setData(prev => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
     return (
         <div className={clsx("tab-content pt-2", styles.editProfile)}>
             <div className={clsx("tab-pane fade show active")} role="tabpanel">
-                <form>
+                <form action="" onSubmit={(event) => {
+                    props.changePass(data);
+                    //event.preventDefault();
+                }}>
                     <div className={clsx("row", styles.info)}>
                         <div className={clsx("col-3")}>
                             Current Password
                         </div>
                         <div className={clsx("col-9")}>
-                            <input type="text"></input>
+                            <input name="cur_pass" type="password" onChange={handleChange}></input>
                         </div>
                     </div>
                     <div className={clsx("row", styles.info)}>
@@ -134,7 +171,7 @@ function ChangePassword() {
                             New Password
                         </div>
                         <div className={clsx("col-9")}>
-                            <input type="text"></input>
+                            <input name="new_pass" type="password" onChange={handleChange}></input>
                         </div>
                     </div>
                     <div className={clsx("row", styles.info)}>
@@ -142,11 +179,11 @@ function ChangePassword() {
                             Comfirm new password
                         </div>
                         <div className={clsx("col-9")}>
-                            <input type="text"></input>
+                            <input name="confpass" type="password" onChange={handleChange}></input>
                         </div>
                     </div>
                     <div className={clsx("text-center")}>
-                        <button className={styles.btn}>CHANGE PASSWORD</button>
+                        <button type="submit" className={styles.btn}>CHANGE PASSWORD</button>
                     </div>
                 </form>
 
@@ -160,7 +197,7 @@ function MyAccount() {
 
     //const { Auth } = useContext(AuthApi);
     useEffect(() => {
-        console.log("Logged with account: ", Auth.Auth);
+        console.log("Logged with account: ", Auth);
         const getData = async () => {
             try {
 
@@ -177,6 +214,45 @@ function MyAccount() {
     const chooseOption = (num) => {
         setOption(num);
     }
+    const editeProfile = async (d) => {
+        const headers = {
+            Authorization: "Bearer my-token",
+            "My-Custom-Header": "foobar",
+            "Content-type": "application/json",
+        };
+        try {
+            const res = await axios.post(
+                "https://jsonplaceholder.typicode.com/posts",
+                d,
+                {
+                    headers,
+                }
+            );
+            console.log("Edited your profile", res);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    const changePass = async (d) => {
+        const headers = {
+            Authorization: "Bearer my-token",
+            "My-Custom-Header": "foobar",
+            "Content-type": "application/json",
+        };
+        Auth.Auth.pass = d.new_pass;
+        try {
+            const res = await axios.post(
+                "https://jsonplaceholder.typicode.com/posts",
+                Auth.Auth,
+                {
+                    headers,
+                }
+            );
+            console.log("Changed the password", res);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return (
         <div className={clsx("container-fuild")}>
@@ -190,11 +266,11 @@ function MyAccount() {
                 <div className={clsx("col-3 d-none d-xl-block", styles.intro)}>
                     <div className={clsx("card", styles.cardIntro)}>
                         <div className={clsx("card-body d-flex flex-column align-items-center")}>
-                            <img src={Auth.ava}></img>
-                            <p>{Auth.fullname}</p>
+                            <img src={Auth.Auth.ava}></img>
+                            <p>{Auth.Auth.fullname}</p>
                             <div className={styles.social}>
-                                <a href={Auth.facebook} target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-facebook"></i></a>
-                                <a href={Auth.insta} target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
+                                <a href={Auth.Auth.facebook} target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-facebook"></i></a>
+                                <a href={Auth.Auth.insta} target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
                             </div>
 
                         </div>
@@ -215,7 +291,7 @@ function MyAccount() {
                                 </li>
 
                             </ul>
-                            {option === 1 ? <Overview /> : option === 2 ? <EditProfile /> : <ChangePassword />}
+                            {option === 1 ? <Overview Auth={Auth.Auth} /> : option === 2 ? <EditProfile Auth={Auth.Auth} editProfile={editeProfile} /> : <ChangePassword Auth={Auth.Auth} changePass={changePass}/>}
                         </div>
                     </div>
 
@@ -224,11 +300,11 @@ function MyAccount() {
                 <div className={clsx("row d-lg-block d-xl-none", styles.intro)}>
                     <div className={clsx("card", styles.cardIntro)}>
                         <div className={clsx("card-body d-flex flex-column align-items-center")}>
-                            <img src={Auth.ava}></img>
-                            <p>{Auth.fullname}</p>
+                            <img src={Auth.Auth.ava}></img>
+                            <p>{Auth.Auth.fullname}</p>
                             <div className={styles.social}>
-                                <a href={Auth.facebook} target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-facebook"></i></a>
-                                <a href={Auth.insta} target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
+                                <a href={Auth.Auth.facebook} target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-facebook"></i></a>
+                                <a href={Auth.Auth.insta} target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-instagram"></i></a>
                             </div>
 
                         </div>
@@ -249,7 +325,7 @@ function MyAccount() {
                                 </li>
 
                             </ul>
-                            {option === 1 ? <Overview /> : option === 2 ? <EditProfile /> : <ChangePassword />}
+                            {option === 1 ? <Overview Auth={Auth.Auth} /> : option === 2 ? <EditProfile Auth={Auth.Auth} /> : <ChangePassword Auth={Auth.Auth} changePass={changePass} />}
                         </div>
                     </div>
 

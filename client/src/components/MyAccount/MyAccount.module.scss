@@ -75,7 +75,12 @@
 
         .info {
             margin-top: 1rem;
+            :first-child {
+                color: rgb(105, 130, 130);
+                font-weight: 500;
+            }
         }
+        
     }
 
     .editProfile {
@@ -86,6 +91,10 @@
 
         .info {
             margin-top: 1rem;
+            div:first-child {
+                color: rgb(105, 130, 130);
+                font-weight: 500;
+            }
         }
 
         .btn {

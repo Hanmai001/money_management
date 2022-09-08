@@ -5,7 +5,7 @@ import Home from "../Home/Home";
 import Transaction from "../Transaction/Transaction";
 import MyWallet from "../MyWallet/MyWallet";
 import Categories from "../Categories/Categories";
-import AuthApi from "../Home/Auth";
+import AuthApi from "../Home/AuthApi";
 import MyAccount from "../MyAccount/MyAccount";
 
 function App() {
