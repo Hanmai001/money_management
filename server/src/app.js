@@ -12,7 +12,7 @@ const passportConfig = require("./configs/passport/index");
 const app = express();
 
 //todo setting server
-app.use(bodyParser.urlencoded({
+app.use(bodyparser.urlencoded({
     extended: true
 }));
 
