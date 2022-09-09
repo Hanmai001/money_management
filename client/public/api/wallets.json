@@ -5,7 +5,8 @@
         "name": "Study",
         "currency": "Việt Nam Đồng",
         "initialBalance": 100000000,
-        "consumed": 106757
+        "consumed": 106757,
+        "createOn": "20/08/2022"
     },
     {
         "_id": 2,
@@ -13,6 +14,61 @@
         "name": "Abroad",
         "currency": "Việt Nam Đồng",
         "initialBalance": 100000000,
-        "consumed": 1076876878
+        "consumed": 1076876878,
+        "createOn": "20/08/2022"
+    },
+    {
+        "_id": 3,
+        "userId": 1,
+        "name": "Study",
+        "currency": "Việt Nam Đồng",
+        "initialBalance": 100000000,
+        "consumed": 106757,
+        "createOn": "20/08/2022"
+    },
+    {
+        "_id": 4,
+        "userId": 1,
+        "name": "Abroad",
+        "currency": "Việt Nam Đồng",
+        "initialBalance": 100000000,
+        "consumed": 1076876878,
+        "createOn": "20/08/2022"
+    },
+    {
+        "_id": 5,
+        "userId": 1,
+        "name": "Study",
+        "currency": "Việt Nam Đồng",
+        "initialBalance": 100000000,
+        "consumed": 106757,
+        "createOn": "20/08/2022"
+    },
+    {
+        "_id": 6,
+        "userId": 1,
+        "name": "Abroad",
+        "currency": "Việt Nam Đồng",
+        "initialBalance": 100000000,
+        "consumed": 1076876878,
+        "createOn": "20/08/2022"
+    },
+    {
+        "_id": 7,
+        "userId": 1,
+        "name": "Study",
+        "currency": "Việt Nam Đồng",
+        "initialBalance": 100000000,
+        "consumed": 106757,
+        "createOn": "20/08/2022"
+    },
+    {
+        "_id": 8,
+        "userId": 1,
+        "name": "Abroad",
+        "currency": "Việt Nam Đồng",
+        "initialBalance": 100000000,
+        "consumed": 1076876878,
+        "createOn": "20/08/2022"
     }
 ]

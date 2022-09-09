@@ -37,7 +37,7 @@ function Sidebar(props) {
         }
       >
         <img src="https://cdn.iconscout.com/icon/free/png-256/list-table-1918608-1625905.png"></img>
-        <a href="#">Tablets</a>
+        <Link to="/table">Tables</Link>
       </div>
       <div
         className={styles.option}

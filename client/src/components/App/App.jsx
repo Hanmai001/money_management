@@ -7,6 +7,7 @@ import MyWallet from "../MyWallet/MyWallet";
 import Categories from "../Categories/Categories";
 import AuthApi from "../Home/AuthApi";
 import MyAccount from "../MyAccount/MyAccount";
+import Table from "../Table/Table";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
             <Route exact path="/mywallet" element={<MyWallet />}></Route>
             <Route exact path="/categories" element={<Categories />}></Route>
             <Route exact path="/myaccount" element={<MyAccount />}></Route>
+            <Route exact path="/table" element={<Table />}></Route>
           </Routes>
         </AuthApi.Provider>
       </Fragment>

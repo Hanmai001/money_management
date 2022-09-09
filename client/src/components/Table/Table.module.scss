@@ -1,0 +1,81 @@
+.content {
+    // transition: all 0.3s;
+    // transition-property: all;
+    // transition-duration: 0.3s;
+    // transition-timing-function: ease;
+    // transition-delay: 0s;
+    .title {
+        margin-top: 100px;
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            font-weight: 600;
+            //color: #012970;
+        }
+    }
+}
+.section {
+    margin-top: 2rem;
+    .card {
+        margin-bottom: 30px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgb(118, 117, 117);
+    }
+    .cardBody {
+        h5 {
+            padding: 10px 0 15px 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: #012970;
+            //font-family: "Poppins", sans-serif;
+        }
+        .tableTop {
+            margin: 2rem 0 1rem 0.5rem;
+            .tableSearch {
+                input {
+                    padding: 0.5rem;
+                }
+            }
+        }
+        .tableContainer {
+            .tableData {
+                max-width: 100%;
+                width: 100%;
+                border-spacing: 0;
+                border-collapse: separate;
+            }
+        
+        }
+        .bottom {
+            margin-top: 1.5rem;
+            text-align: center;
+            i {
+                padding: 0.5rem;
+            }
+            i:hover {
+                cursor: pointer;
+            }
+            span {
+                margin: 0 0.5rem;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+/* Tablet */
+@media (max-width: 1199px) {
+    .content {
+        width: 100% !important;
+        margin-left: 0rem !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .content {
+        width: 100% !important;
+        margin-left: 0rem !important;
+    }
+}
