@@ -17,9 +17,10 @@ function loginPOST(req, res, next) {
         req.login(user, (err) => {
             if (err) {
                 console.log({ err });
+                console.log(req.)
                 return res.status(501).json({ check: false });
             }
-            return res.status(200).json({ check: true });
+            return res.status(200).json({ check: true, token: ""});
         });
     })(req, res, next);
 }
