@@ -26,7 +26,7 @@ function Sidebar(props) {
         }
       >
         <img src="https://cdn-icons-png.flaticon.com/512/3501/3501061.png"></img>
-        <a href="#">Charts</a>
+        <Link to="/chart">Charts</Link>
       </div>
       <div
         className={styles.option}

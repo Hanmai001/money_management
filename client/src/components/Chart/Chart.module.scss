@@ -1,0 +1,161 @@
+.content {
+    // transition: all 0.3s;
+    // transition-property: all;
+    // transition-duration: 0.3s;
+    // transition-timing-function: ease;
+    // transition-delay: 0s;
+}
+
+.section {
+    margin-top: 8rem;
+
+    .time {
+        position: relative;
+        text-align: center;
+        margin-bottom: 1rem;
+        h5 {
+            display: inline-block;
+            padding-right: 0.5rem;
+            font-size: 1rem;
+        }
+        i {
+            display: inline-block;
+        }
+        h5:hover, i:hover {
+            cursor: pointer;
+        }
+    }
+    .card {
+        margin-bottom: 30px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgb(118, 117, 117);
+    }
+
+    .cardBody {
+        h5 {
+            padding: 10px 0 15px 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: #012970;
+            //font-family: "Poppins", sans-serif;
+        }
+
+        .bottom {
+            margin-top: 1.5rem;
+            text-align: center;
+
+            i {
+                padding: 0.5rem;
+            }
+
+            i:hover {
+                cursor: pointer;
+            }
+
+            span {
+                margin: 0 0.5rem;
+                font-size: 16px;
+            }
+        }
+    }
+}
+.barChart {
+}
+.pieChart {
+    .chart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container {
+        min-width: 100px;
+        max-width: 500px;
+        width: 500px;
+        align-items: center;
+    }
+    .expense {
+        display: inline-block;
+        text-align: center;
+    }
+    .debt {
+        display: inline-block;
+        text-align: center;
+    }
+}
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(220, 220, 220, 0.5);
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal .container {
+    position: relative;
+    background-color: white;
+    //box-shadow: 0 5px 10px rgb(118, 117, 117);
+    width: 400px;
+    max-width: 500px;
+    //height: 15rem;
+    align-items: center;
+    border-width: 5px;
+
+    .header {
+        border-bottom-style: solid;
+        border-bottom-color: rgba(165, 165, 165, 0.3);
+        padding: 1rem;
+        button {
+            display: inline-block;
+        }
+        h6 {
+            display: inline-block;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+        }
+    }
+    .date {
+        text-align: center;
+        padding: 0.5rem;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(165, 165, 165, 0.3);
+    }
+    .date:hover {
+        cursor: pointer;
+        background-color: rgba(165, 165, 165, 0.3);
+    }
+}
+
+@keyframes modalFadeIn {
+
+    /* modal container sẽ đi từ -100px đến 0px*/
+    from {
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Tablet */
+@media (max-width: 1199px) {
+    .content {
+        width: 100% !important;
+        margin-left: 0rem !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .content {
+        width: 100% !important;
+        margin-left: 0rem !important;
+    }
+}

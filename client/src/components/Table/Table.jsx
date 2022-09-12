@@ -80,7 +80,7 @@ function Table() {
                                             </div>
                                         </div>
                                         <div className={styles.tableContanier}>
-                                            <table className={clsx("table datatable", styles.tableData)}>
+                                            <table className={clsx("table datatable table-striped", styles.tableData)}>
                                                 <tbody>
                                                     <tr className={styles.head}>
                                                         <th scope="col" style={{ width: "6%", textAlign: "center" }}>

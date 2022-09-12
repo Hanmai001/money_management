@@ -8,6 +8,7 @@ import Categories from "../Categories/Categories";
 import AuthApi from "../Home/AuthApi";
 import MyAccount from "../MyAccount/MyAccount";
 import Table from "../Table/Table";
+import Chart from "../Chart/Chart";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
             <Route exact path="/categories" element={<Categories />}></Route>
             <Route exact path="/myaccount" element={<MyAccount />}></Route>
             <Route exact path="/table" element={<Table />}></Route>
+            <Route exact path="/chart" element={<Chart />}></Route>
           </Routes>
         </AuthApi.Provider>
       </Fragment>
