@@ -12,4 +12,6 @@ Bước 2:
 Bước 3:
 - Mở source code lên, mở terminal và gõ npm install, terminal sẽ cài đặt các package cần thiết cho chương trình.
 Bước 4: Gõ npm run dev trong terminal, server sẽ được khởi chạy trên localhost:3000.
+
+
 Bước 5: Sau khi chạy chương trình thành công, trang đăng nhập được hiện ra, hãy nhập bất cứ gì đều sẽ login vào.
