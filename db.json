@@ -1,0 +1,188 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Food & Beverage",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 2,
+      "name": "Transportation",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 3,
+      "name": "Water Bill",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 4,
+      "name": "Phone Bill",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 5,
+      "name": "Gas Bill",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 6,
+      "name": "Internet Bill",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 7,
+      "name": "Other Utility Bills",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 8,
+      "name": "Food & Beverage",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 9,
+      "name": "Transportation",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 10,
+      "name": "Water Bill",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 11,
+      "name": "Phone Bill",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 12,
+      "name": "Gas Bill",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 13,
+      "name": "Internet Bill",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    },
+    {
+      "id": 14,
+      "name": "Other Utility Bills",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/768px-Creative-Tail-Animal-dog.svg.png"
+    }
+  ],
+  "currency": [
+    {
+      "id": 1,
+      "name": "Việt Nam Đồng",
+      "scale": "đ",
+      "icon": "https://static.moneylover.me/img/flag/ic_currency_vnd.png"
+    },
+    {
+      "id": 2,
+      "name": "Pound",
+      "scale": "GBP",
+      "icon": "https://static.moneylover.me/img/flag/ic_currency_gbp.png"
+    },
+    {
+      "id": 3,
+      "name": "Euro",
+      "scale": "EUR",
+      "icon": "https://static.moneylover.me/img/flag/ic_currency_eur.png"
+    },
+    {
+      "id": 4,
+      "name": "Yen",
+      "scale": "JPY",
+      "icon": "https://static.moneylover.me/img/flag/ic_currency_jpy.png"
+    },
+    {
+      "id": 5,
+      "name": "Rubles",
+      "scale": "RUB",
+      "icon": "https://static.moneylover.me/img/flag/ic_currency_rub.png"
+    },
+    {
+      "id": 6,
+      "name": "Baht",
+      "scale": "THB",
+      "icon": "https://static.moneylover.me/img/flag/ic_currency_thb.png"
+    },
+    {
+      "id": 7,
+      "name": "Won",
+      "scale": "KRW",
+      "icon": "https://static.moneylover.me/img/flag/ic_currency_krw.png"
+    },
+    {
+      "id": 8,
+      "name": "United States Dollar",
+      "scale": "USD",
+      "icon": "https://static.moneylover.me/img/flag/ic_currency_usd.png"
+    },
+    {
+      "id": 9,
+      "name": "Francs",
+      "scale": "CHF - Fr",
+      "icon": "https://static.moneylover.me/img/flag/ic_currency_chf.png"
+    },
+    {
+      "id": 10,
+      "name": "Norwegian krone",
+      "scale": "NOK - kr",
+      "icon": "https://static.moneylover.me/img/flag/ic_currency_nok.png"
+    }
+  ],
+  "transactions": [
+    {
+      "name": "Street food",
+      "categoryId": 1,
+      "walletId": 1,
+      "date": "05/04/2023",
+      "note": "with friends",
+      "amount": 32423,
+      "id": 1
+    },
+    {
+      "name": "Street food",
+      "categoryId": 2,
+      "walletId": 1,
+      "date": "07/04/2023",
+      "note": "bus",
+      "amount": 5000,
+      "id": 2
+    },
+    {
+      "name": "Street food",
+      "categoryId": 3,
+      "walletId": 1,
+      "date": "11/04/2023",
+      "note": "wwayet",
+      "amount": 199000,
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "fullname": "Mai Tran Gia Han",
+      "email": "naruto3110@yahoo.com",
+      "pass": "h12345",
+      "job": "Web design",
+      "ava": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp",
+      "facebook": "https://www.facebook.com/profile.php?id=100038694972797",
+      "insta": "https://www.facebook.com/profile.php?id=100038694972797"
+    }
+  ],
+  "wallets": [
+    {
+      "name": "Street food",
+      "currency": "Việt Nam Đồng",
+      "userId": 1,
+      "initialBalance": 500000,
+      "consumed": 236423,
+      "createOn": "11/4/2023",
+      "id": 1
+    }
+  ]
+}

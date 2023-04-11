@@ -27,7 +27,7 @@ function Table() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await axios.get("/api/wallets.json");
+                const res = await axios.get("http://localhost:5000/wallets");
 
                 console.log("lst_mywallet: ", res.data);
                 setNumPage(Math.ceil(res.data.length / 5));
@@ -101,7 +101,7 @@ function Table() {
                                                     </tr>
                                                     {lstWallet.map((item, index) => {
                                                         if (index >= 5 * pos && index <= 5 * pos + 4) {
-                                                            return (<ItemList key={item._id} index={index + 1} name={item.name} initialBl={item.initialBalance} consumed={item.consumed} createOn={item.createOn} />)
+                                                            return (<ItemList key={item.id} index={index + 1} name={item.name} initialBl={item.initialBalance} consumed={item.consumed ? item.consumed : 0} createOn={item.createOn} />)
                                                         }
 
                                                     })}

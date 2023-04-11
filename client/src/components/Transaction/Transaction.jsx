@@ -54,14 +54,14 @@ function Transaction() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res1 = await axios.get("/api/transactions.json");
-        const res2 = await axios.get("/api/categories.json");
+        const res1 = await axios.get("http://localhost:5000/transactions");
+        const res2 = await axios.get("http://localhost:5000/categories");
 
         console.log("lst_transaction: ", res1.data);
         console.log("lst_category: ", res2.data);
         let total = 0;
         let temp = res1.data.filter((item) => {
-          if (Number(item.date.slice(3, 5)) === time.date) {
+          if (Number(item.date.slice(0, 2)) === time.date) {
             console.log(item.date);
             total = total + item.amount;
             return true;
@@ -96,13 +96,13 @@ function Transaction() {
       };
     });
     try {
-      const res = await axios.get("/api/transactions.json");
+      const res = await axios.get("http://localhost:5000/transactions");
 
       let total = 0;
       let temp = res.data.filter((item) => {
         if (
-          Number(item.date.slice(3, 5)) === time.date &&
-          Number(item.date.slice(0, 2)) === num
+          Number(item.date.slice(0, 2)) === time.date &&
+          Number(item.date.slice(3, 5)) === num
         ) {
           console.log(item.date);
           total = total + item.amount;
@@ -112,6 +112,7 @@ function Transaction() {
 
       setLstTrans(temp);
       setSum(total);
+      window.location.reload();
 
     } catch (error) {
       console.log(error);
@@ -127,13 +128,13 @@ function Transaction() {
       };
     });
     try {
-      const res = await axios.get("/api/transactions.json");
+      const res = await axios.get("http://localhost:5000/transactions");
 
       let total = 0;
       let temp = res.data.filter((item) => {
         if (
-          Number(item.date.slice(3, 5)) === num &&
-          Number(item.date.slice(0, 2)) === time.month
+          Number(item.date.slice(0, 2)) === num &&
+          Number(item.date.slice(3, 5)) === time.month
         ) {
           console.log(item.date);
           total = total + item.amount;
@@ -159,13 +160,13 @@ function Transaction() {
       };
     });
     try {
-      const res = await axios.get("/api/transactions.json");
+      const res = await axios.get("http://localhost:5000/transactions");
 
       let total = 0;
       let temp = res.data.filter((item) => {
         if (
-          Number(item.date.slice(3, 5)) === time.date &&
-          Number(item.date.slice(0, 2)) === time.month
+          Number(item.date.slice(0, 2)) === time.date &&
+          Number(item.date.slice(3, 5)) === time.month
         ) {
           console.log(item.date);
           total = total + item.amount;
@@ -337,13 +338,13 @@ function Transaction() {
               </div>
               {lst_trans.map((trans) => (
                 <ItemTransaction
-                  key={trans._id}
+                  key={trans.id}
                   categ={
-                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                    lst_categ.find((categ) => categ.id === trans.categoryId)
                       .name
                   }
                   categ_img={
-                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                    lst_categ.find((categ) => categ.id === trans.categoryId)
                       .img
                   }
                   amount={trans.amount}
@@ -372,13 +373,13 @@ function Transaction() {
               </div>
               {lst_trans.map((trans) => (
                 <ItemTransaction
-                  key={trans._id}
+                  key={trans.id}
                   categ={
-                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                    lst_categ.find((categ) => categ.id === trans.categoryId)
                       .name
                   }
                   categ_img={
-                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                    lst_categ.find((categ) => categ.id === trans.categoryId)
                       .img
                   }
                   amount={trans.amount}
@@ -407,13 +408,13 @@ function Transaction() {
               </div>
               {lst_trans.map((trans) => (
                 <ItemTransaction
-                  key={trans._id}
+                  key={trans.id}
                   categ={
-                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                    lst_categ.find((categ) => categ.id === trans.categoryId)
                       .name
                   }
                   categ_img={
-                    lst_categ.find((categ) => categ._id === trans.categoryId)
+                    lst_categ.find((categ) => categ.id === trans.categoryId)
                       .img
                   }
                   amount={trans.amount}

@@ -508,13 +508,13 @@ function Home() {
     // const res = await axios.post("https://jsonplaceholder.typicode.com/posts", data, {
     //   headers,
     // });
-    const res = await axios.get("./api/users.json");
+    const res = await axios.get("http://localhost:5000/users");
     console.log("Sent data", res.data);
     setCheckLogIn(!check_login);
-    Auth.Auth = (res.data.filter(user => {
-      if (user.email === data.email) return true;
-    }))[0];
-    console.log("###", Auth.Auth)
+    // Auth.Auth = (res.data.filter(user => {
+    //   if (user.email === data.email) return true;
+    // }))[0];
+    // console.log("###", Auth.Auth)
   };
   const resetPass = async (data) => {
     console.log("data resetPass: ", data);

@@ -12,7 +12,7 @@ function Categories() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await axios.get("/api/categories.json");
+                const res = await axios.get("http://localhost:5000/categories");
                 console.log("lst_category: ", res.data);
 
                 setLstCateg(res.data);
@@ -37,7 +37,7 @@ function Categories() {
     
                     <div className={clsx(styles.container)}>
                         {lst_categ.map((item) => (
-                            <div key={item._id} className={clsx("col-12", styles.iCateg)}>
+                            <div key={item.id} className={clsx("col-12", styles.iCateg)}>
                                 <img src={item.img}></img>
                                 <span className={styles.name}>{item.name}</span>
                             </div>

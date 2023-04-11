@@ -221,8 +221,8 @@ function MyAccount() {
             "Content-type": "application/json",
         };
         try {
-            const res = await axios.post(
-                "https://jsonplaceholder.typicode.com/posts",
+            const res = await axios.put(
+                `http://localhost:5000/users/${d.id}`,
                 d,
                 {
                     headers,
@@ -242,7 +242,7 @@ function MyAccount() {
         Auth.Auth.pass = d.new_pass;
         try {
             const res = await axios.post(
-                "https://jsonplaceholder.typicode.com/posts",
+                `http://localhost:5000/users/${Auth.id}`,
                 Auth.Auth,
                 {
                     headers,
